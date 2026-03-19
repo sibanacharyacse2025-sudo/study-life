@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_ai_message_rounded"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_margin="12dp">
+
+    <!-- Group Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="12dp">
+
+        <!-- Group Icon -->
+        <ImageView
+            android:id="@+id/ivGroupIcon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@android:drawable/ic_menu_myplaces"
+            android:contentDescription="Group Icon"
+            android:tint="#FFD700"
+            android:layout_marginEnd="12dp"
+            android:scaleType="centerInside" />
+
+        <!-- Group Info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvGroupName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Group Name"
+                android:textColor="#2E5090"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📚 Studies"
+                android:textColor="#A1887F"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <!-- Member Count Badge -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:background="@drawable/button_circular_send"
+            android:gravity="center"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <TextView
+                android:id="@+id/tvMemberCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="45"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Description -->
+    <TextView
+        android:id="@+id/tvGroupDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Group description..."
+        android:textColor="#3E2723"
+        android:textSize="13sp"
+        android:lineSpacingMultiplier="1.3"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Creator Info -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="12dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="@android:color/transparent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Created by"
+            android:textColor="#A1887F"
+            android:textSize="12sp"
+            android:layout_marginEnd="4dp" />
+
+        <TextView
+            android:id="@+id/tvCreatorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Teacher Name"
+            android:textColor="#2E5090"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="4dp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="12dp"
+            android:background="#A1887F"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp" />
+
+        <TextView
+            android:id="@+id/tvCreatedDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 days ago"
+            android:textColor="#A1887F"
+            android:textSize="12sp"
+            android:layout_marginStart="4dp" />
+
+    </LinearLayout>
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btnViewMembers"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="👥 Members"
+            android:textSize="12sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_mood_selector"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnJoinGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Join"
+            android:textSize="12sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_primary_yellow"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

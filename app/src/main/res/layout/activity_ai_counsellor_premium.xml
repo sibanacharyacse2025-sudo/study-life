@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_yellow_background"
+    android:orientation="vertical">
+
+    <!-- Premium Header with AI Avatar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_header_blue"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- AI Avatar/Face -->
+        <ImageView
+            android:id="@+id/ivAIAvatar"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_ai"
+            android:tint="#FFD700"
+            android:contentDescription="AI Counsellor"
+            android:layout_marginBottom="12dp"
+            android:scaleType="centerInside" />
+
+        <!-- AI Name -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="StudyLife AI Counsellor"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Status -->
+        <TextView
+            android:id="@+id/tvAIStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🟢 Ready to chat &amp; listen"
+            android:textColor="#E3F2FD"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <!-- Voice & Mood Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center">
+
+        <!-- Voice Toggle -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/btnToggleVoice"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@drawable/ic_voice"
+                android:background="@drawable/button_circular_accent"
+                android:tint="#FFFFFF"
+                android:contentDescription="Voice"
+                android:scaleType="centerInside"
+                android:padding="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Voice"
+                android:textColor="#2E5090"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
+        <!-- Heart Rate -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <View
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/button_circular_send"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Listening"
+                android:textColor="#2E5090"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
+        <!-- Quick Actions -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/btnQuickTips"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@drawable/ic_practice"
+                android:background="@drawable/button_mood_selector"
+                android:tint="#FFFFFF"
+                android:contentDescription="Tips"
+                android:scaleType="centerInside"
+                android:padding="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tips"
+                android:textColor="#2E5090"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Mood Selector -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_margin="12dp">
+
+        <LinearLayout
+            android:id="@+id/llMoodSelector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp">
+
+            <Button
+                android:id="@+id/btnMoodHappy"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="😊 Happy"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_primary_yellow"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnMoodSad"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="😢 Sad"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_mood_selector"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnMoodStressed"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="😰 Stressed"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_mood_selector"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnMoodConfused"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="🤔 Confused"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_mood_selector"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <!-- Chat Messages -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMessages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:clipToPadding="false" />
+
+    <!-- Input Area with Voice & Text -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Voice Input -->
+        <ImageButton
+            android:id="@+id/btnVoiceInput"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_mic_off"
+            android:background="@drawable/button_circular_accent"
+            android:contentDescription="Voice Input"
+            android:tint="#FFFFFF"
+            android:scaleType="centerInside"
+            android:padding="12dp"
+            android:layout_marginEnd="10dp" />
+
+        <!-- Message Input -->
+        <EditText
+            android:id="@+id/etMessage"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:hint="Share how you're feeling..."
+            android:textColorHint="#A1887F"
+            android:textColor="#3E2723"
+            android:textSize="15sp"
+            android:background="@drawable/input_field_rounded"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:gravity="center_vertical"
+            android:layout_marginEnd="10dp" />
+
+        <!-- Send Button -->
+        <ImageButton
+            android:id="@+id/btnSend"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button_circular_send"
+            android:src="@drawable/ic_send"
+            android:contentDescription="Send"
+            android:tint="#FFFFFF"
+            android:scaleType="centerInside"
+            android:padding="12dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+    <!-- Yellow Background Circle -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M100,20A80,80 0 1,1 100,180A80,80 0 0,1 100,20Z" />
+
+    <!-- Shadow for depth -->
+    <path
+        android:fillColor="#FFC700"
+        android:pathData="M100,100A80,80 0 0,1 180,100Z"
+        android:alpha="0.3" />
+
+    <!-- First Book (Left, Blue) -->
+    <path
+        android:fillColor="#2E5090"
+        android:pathData="M50,70L70,65L75,120L55,125Z" />
+
+    <!-- First Book Spine -->
+    <path
+        android:fillColor="#1E3A5C"
+        android:pathData="M70,65L72,65L77,120L75,120Z" />
+
+    <!-- First Book Pages -->
+    <path
+        android:fillColor="#E8F0F8"
+        android:pathData="M55,75L70,70L70,115L55,120Z" />
+
+    <!-- Second Book (Center, Red) -->
+    <path
+        android:fillColor="#C41E3A"
+        android:pathData="M75,60L100,58L105,125L80,127Z" />
+
+    <!-- Second Book Spine -->
+    <path
+        android:fillColor="#8B0000"
+        android:pathData="M100,58L102,58L107,125L105,125Z" />
+
+    <!-- Second Book Pages -->
+    <path
+        android:fillColor="#FFE8E8"
+        android:pathData="M80,68L100,65L100,120L80,123Z" />
+
+    <!-- Third Book (Right, Green) -->
+    <path
+        android:fillColor="#2D5016"
+        android:pathData="M105,70L125,65L130,120L110,125Z" />
+
+    <!-- Third Book Spine -->
+    <path
+        android:fillColor="#1A3009"
+        android:pathData="M125,65L127,65L132,120L130,120Z" />
+
+    <!-- Third Book Pages -->
+    <path
+        android:fillColor="#E8F5E9"
+        android:pathData="M110,75L125,70L125,115L110,120Z" />
+
+    <!-- Decorative stars -->
+    <path
+        android:fillColor="#FFB6D9"
+        android:pathData="M140,50L142,55L147,56L143,58L144,63L140,60L136,63L137,58L133,56L138,55Z" />
+
+    <path
+        android:fillColor="#FFE5B4"
+        android:pathData="M160,75L161,78L164,79L161,81L162,84L160,82L158,84L158,81L155,79L158,78Z" />
+
+    <path
+        android:fillColor="#B4E7FF"
+        android:pathData="M50,150L51,153L54,154L51,156L52,159L50,157L48,159L48,156L45,154L48,153Z" />
+
+</vector>

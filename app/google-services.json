@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "855798603957",
+    "project_id": "fortheunity",
+    "storage_bucket": "fortheunity.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855798603957:android:60a61bde75cd959db59efc",
+        "android_client_info": {
+          "package_name": "com.example.stdili"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855798603957-fvj0ju48o9au917d4r47vd57f14tvvnt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgH1PCcQdPHRF8qaX6j3GnO0nzSgAiBng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "855798603957-fvj0ju48o9au917d4r47vd57f14tvvnt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,51 @@
+<!-- Add these activities to your AndroidManifest.xml inside <application> tag -->
+
+<!-- One-on-One Chat Activity -->
+<activity
+    android:name=".activities.OneOnOneChatActivity"
+    android:label="Chat"
+    android:parentActivityName=".activities.MainActivity"
+    android:exported="false" />
+
+<!-- AI Note Generator Activity -->
+<activity
+    android:name=".activities.AINoteGeneratorActivity"
+    android:label="AI Notes Generator"
+    android:parentActivityName=".activities.MainActivity"
+    android:exported="false" />
+
+<!-- Exam Conductor Activity -->
+<activity
+    android:name=".activities.ExamConductorActivity"
+    android:label="Exam Proctoring"
+    android:screenOrientation="portrait"
+    android:parentActivityName=".activities.MainActivity"
+    android:exported="false" />
+
+<!-- Community Groups Activity -->
+<activity
+    android:name=".activities.CommunityGroupActivity"
+    android:label="Community Groups"
+    android:parentActivityName=".activities.MainActivity"
+    android:exported="false" />
+
+<!-- Group Chat Activity -->
+<activity
+    android:name=".activities.GroupChatActivity"
+    android:label="Group Chat"
+    android:parentActivityName=".activities.CommunityGroupActivity"
+    android:exported="false" />
+
+<!-- Create Group Activity -->
+<activity
+    android:name=".activities.CreateGroupActivity"
+    android:label="Create Group"
+    android:parentActivityName=".activities.CommunityGroupActivity"
+    android:exported="false" />
+
+<!-- Add these permissions -->
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />

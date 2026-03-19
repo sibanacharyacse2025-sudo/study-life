@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_yellow_background"
+    android:orientation="vertical">
+
+    <!-- Header with Tabs -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_header_blue"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@android:drawable/ic_menu_myplaces"
+            android:contentDescription="Community"
+            android:tint="#FFFFFF"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Community Groups"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Tab Layout for filtering -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_margin="12dp">
+
+        <LinearLayout
+            android:id="@+id/llCategoryTabs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:spacing="8dp">
+
+            <Button
+                android:id="@+id/btnAllGroups"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="All Groups"
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_mood_selector"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnStudies"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="📚 Studies"
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_primary_yellow"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnProjects"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="🚀 Projects"
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_mood_selector"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnCareer"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="💼 Career"
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_mood_selector"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <!-- Groups List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCommunityGroups"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:clipToPadding="false" />
+
+    <!-- FAB Button - Only for teachers/seniors -->
+    <Button
+        android:id="@+id/btnCreateGroup"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_margin="16dp"
+        android:text="+ Create New Group"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_primary_yellow"
+        android:visibility="gone" />
+
+    <!-- Notes on role restrictions -->
+    <TextView
+        android:id="@+id/tvRoleNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="💡 Note: Only teachers and seniors can create groups"
+        android:textColor="#2E5090"
+        android:textSize="12sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp"
+        android:visibility="gone" />
+
+</LinearLayout>

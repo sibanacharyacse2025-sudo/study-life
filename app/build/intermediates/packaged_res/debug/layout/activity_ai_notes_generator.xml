@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_yellow_background"
+    android:orientation="vertical">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_header_blue"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_notes"
+            android:contentDescription="Notes"
+            android:tint="#FFFFFF"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AI Notes Generator"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Transform your notes into organized summaries"
+            android:textColor="#E3F2FD"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <!-- Input Section -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Subject Input -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subject"
+                android:textColor="#2E5090"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/etSubject"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Maths, Science, History, etc."
+                android:background="@drawable/input_field_rounded"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Topic Input -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Topic"
+                android:textColor="#2E5090"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/etTopic"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Chapter name or topic"
+                android:background="@drawable/input_field_rounded"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Content Input -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Notes (Paste or type)"
+                android:textColor="#2E5090"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/etContent"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:hint="Paste your rough notes here..."
+                android:background="@drawable/input_field_rounded"
+                android:padding="12dp"
+                android:gravity="top"
+                android:layout_marginBottom="16dp"
+                android:inputType="textMultiLine" />
+
+            <!-- Generate Button -->
+            <Button
+                android:id="@+id/btnGenerateNotes"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="✨ Generate Organized Notes"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_primary_yellow"
+                android:layout_marginBottom="16dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Generated Notes Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Generated Notes"
+            android:textColor="#2E5090"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tvGeneratedNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Generated notes will appear here..."
+                android:textColor="#5D4037"
+                android:textSize="14sp"
+                android:padding="12dp"
+                android:background="@drawable/bg_ai_message_rounded"
+                android:layout_margin="8dp" />
+
+        </ScrollView>
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btnSaveNotes"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Save to Library"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_primary_yellow"
+            android:layout_marginTop="12dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

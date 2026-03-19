@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:padding="16dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btnSmartNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="AI Smart Notes"
+            style="@style/RoundedButton" />
+        <Button
+            android:id="@+id/btnPractice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Practice Exams"
+            style="@style/RoundedButton" />
+        <Button
+            android:id="@+id/btnPdfLibrary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="PDF Library"
+            style="@style/RoundedButton" />
+        <Button
+            android:id="@+id/btnFlashcards"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Flashcards"
+            style="@style/RoundedButton" />
+        <Button
+            android:id="@+id/btnPomodoro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Pomodoro Timer"
+            style="@style/RoundedButton" />
+        <Button
+            android:id="@+id/btnStudyGroups"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Study Groups"
+            style="@style/RoundedButton" />
+    </LinearLayout>
+</ScrollView>

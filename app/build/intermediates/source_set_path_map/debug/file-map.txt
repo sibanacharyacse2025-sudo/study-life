@@ -1,0 +1,60 @@
+com.stdili.app-jetified-activity-ktx-1.8.0-0 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\0a1c9dd4874d8d1585aeb632a97cb887\transformed\jetified-activity-ktx-1.8.0\res
+com.stdili.app-jetified-glide-4.16.0-1 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\13dfeede8028f4b225c15b7a26e39d4a\transformed\jetified-glide-4.16.0\res
+com.stdili.app-navigation-fragment-2.7.5-2 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\18105959c0160308b319dd7d443f8665\transformed\navigation-fragment-2.7.5\res
+com.stdili.app-coordinatorlayout-1.1.0-3 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\229e45cc05d3e1ed809e25ab46d40d64\transformed\coordinatorlayout-1.1.0\res
+com.stdili.app-lifecycle-viewmodel-2.6.2-4 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\25a17e4fd36772a6dceb6bcbff1abd65\transformed\lifecycle-viewmodel-2.6.2\res
+com.stdili.app-jetified-savedstate-ktx-1.2.1-5 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\29dea672ae17b2570c261fae5904d0b0\transformed\jetified-savedstate-ktx-1.2.1\res
+com.stdili.app-jetified-camera-lifecycle-1.3.0-6 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\2f15f99ed198353e0f5ecbe84c36be69\transformed\jetified-camera-lifecycle-1.3.0\res
+com.stdili.app-navigation-ui-2.7.5-7 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\34f36c194be11096a82c88746cb03e37\transformed\navigation-ui-2.7.5\res
+com.stdili.app-jetified-savedstate-1.2.1-8 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\3cfb1897477fd0d83e8a7777b508fd71\transformed\jetified-savedstate-1.2.1\res
+com.stdili.app-jetified-lottie-6.3.0-9 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\3dc445884e6b88e749066ba0e3f38c54\transformed\jetified-lottie-6.3.0\res
+com.stdili.app-browser-1.4.0-10 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\404c6ae093a551ae73c7454114669e9a\transformed\browser-1.4.0\res
+com.stdili.app-jetified-firebase-common-20.4.2-11 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\43f1427aa6667cc084a3c90d562def12\transformed\jetified-firebase-common-20.4.2\res
+com.stdili.app-jetified-firebase-messaging-23.4.0-12 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\4424f9a93de03c672973026aa75f60a9\transformed\jetified-firebase-messaging-23.4.0\res
+com.stdili.app-jetified-lifecycle-livedata-core-ktx-2.6.2-13 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\44304db321a605b76ca1ba7e61fa655d\transformed\jetified-lifecycle-livedata-core-ktx-2.6.2\res
+com.stdili.app-constraintlayout-2.1.4-14 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\443fd687f5e2c432d056ddcf23e13384\transformed\constraintlayout-2.1.4\res
+com.stdili.app-appcompat-1.6.1-15 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\49ced8cd19ed0686441eff51fb1b2392\transformed\appcompat-1.6.1\res
+com.stdili.app-jetified-emoji2-1.2.0-16 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\4bcfb33195c65383edfb870f2f35f6d2\transformed\jetified-emoji2-1.2.0\res
+com.stdili.app-jetified-annotation-experimental-1.3.1-17 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\4f0e792fce9333b7cdcff5f3739d8d02\transformed\jetified-annotation-experimental-1.3.1\res
+com.stdili.app-jetified-fragment-ktx-1.6.2-18 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\4f5940d3ab5361dd7175e35f7e25d08a\transformed\jetified-fragment-ktx-1.6.2\res
+com.stdili.app-jetified-core-ktx-1.12.0-19 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\51ad0dbb03a5ecf5873091741a569e9d\transformed\jetified-core-ktx-1.12.0\res
+com.stdili.app-transition-1.4.1-20 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\52b12058d09221e2dd3054748e64e6f4\transformed\transition-1.4.1\res
+com.stdili.app-jetified-camera-core-1.3.0-21 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\54825a0d989d63d9a96cce12564236d1\transformed\jetified-camera-core-1.3.0\res
+com.stdili.app-jetified-camera-video-1.3.0-22 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\6361cb0d54d2f92d10feea76ad8ef390\transformed\jetified-camera-video-1.3.0\res
+com.stdili.app-jetified-activity-1.8.0-23 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\6571e78fd1df23eecb0cdc5a380b2cfe\transformed\jetified-activity-1.8.0\res
+com.stdili.app-jetified-startup-runtime-1.1.1-24 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\6579b11c3532c65ff6c79856b1d7730b\transformed\jetified-startup-runtime-1.1.1\res
+com.stdili.app-jetified-window-1.0.0-25 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\6776b3aa3b9125c2ffb3af71ad4b1f5b\transformed\jetified-window-1.0.0\res
+com.stdili.app-material-1.10.0-26 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\6ec63a80b2b0caa647d136ab068bb62e\transformed\material-1.10.0\res
+com.stdili.app-jetified-profileinstaller-1.3.0-27 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\74e54dbe21c874037d681b381471c04b\transformed\jetified-profileinstaller-1.3.0\res
+com.stdili.app-core-1.12.0-28 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\794c172d5522d593551f380d6a363617\transformed\core-1.12.0\res
+com.stdili.app-jetified-camera-view-1.3.0-29 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\7c4b43b6941877fa88bcb67fbfd9aca5\transformed\jetified-camera-view-1.3.0\res
+com.stdili.app-jetified-appcompat-resources-1.6.1-30 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\7f640654eb24b88eb0881ad867110454\transformed\jetified-appcompat-resources-1.6.1\res
+com.stdili.app-jetified-camera-camera2-1.3.0-31 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\80442ed058e27656fb3868f079d77d8f\transformed\jetified-camera-camera2-1.3.0\res
+com.stdili.app-navigation-common-2.7.5-32 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\8b6b325b0ec19911bf6901bac18be0c4\transformed\navigation-common-2.7.5\res
+com.stdili.app-lifecycle-runtime-2.6.2-33 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\8c8230e88f22388337ed812feaf20a68\transformed\lifecycle-runtime-2.6.2\res
+com.stdili.app-fragment-1.6.2-34 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\8fb7d1f31b3acb77606bd19e40c9efc4\transformed\fragment-1.6.2\res
+com.stdili.app-jetified-play-services-base-18.0.1-35 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\943f671382931a53b22d3ba23ffce10a\transformed\jetified-play-services-base-18.0.1\res
+com.stdili.app-jetified-lifecycle-viewmodel-ktx-2.6.2-36 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\9e6116ba7b8e9cc7010bb5b435aee3ca\transformed\jetified-lifecycle-viewmodel-ktx-2.6.2\res
+com.stdili.app-lifecycle-livedata-2.6.2-37 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\a3edde63572303c39f829d05e1eca90c\transformed\lifecycle-livedata-2.6.2\res
+com.stdili.app-cardview-1.0.0-38 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\aaa303e01c81b84c3a3e893dd2a8372e\transformed\cardview-1.0.0\res
+com.stdili.app-jetified-lifecycle-process-2.6.2-39 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\ab663cf1bfc757e2986a942e8ea0278c\transformed\jetified-lifecycle-process-2.6.2\res
+com.stdili.app-jetified-emoji2-views-helper-1.2.0-40 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\acbb6c74a8c4417052a6d35ab33d3fed\transformed\jetified-emoji2-views-helper-1.2.0\res
+com.stdili.app-recyclerview-1.3.2-41 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\bdc171bd8a2695a30ad50340c46be4ff\transformed\recyclerview-1.3.2\res
+com.stdili.app-jetified-lifecycle-viewmodel-savedstate-2.6.2-42 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\cfeec6df81f6637c81e6e08d13260ebe\transformed\jetified-lifecycle-viewmodel-savedstate-2.6.2\res
+com.stdili.app-lifecycle-livedata-core-2.6.2-43 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\d378e68cc3f358aa4a8d9248a605a841\transformed\lifecycle-livedata-core-2.6.2\res
+com.stdili.app-slidingpanelayout-1.2.0-44 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\d4a3e608b985ea0139c3465f31b981a5\transformed\slidingpanelayout-1.2.0\res
+com.stdili.app-jetified-play-services-basement-18.1.0-45 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\d7fc89c5c679ecd7ae4fd6e82cdc3285\transformed\jetified-play-services-basement-18.1.0\res
+com.stdili.app-drawerlayout-1.1.1-46 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\dbce8a89a675ee81af8feb615b344fae\transformed\drawerlayout-1.1.1\res
+com.stdili.app-jetified-lifecycle-runtime-ktx-2.6.2-47 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\e72973b6d431dc2b7f764d402c83a76c\transformed\jetified-lifecycle-runtime-ktx-2.6.2\res
+com.stdili.app-jetified-customview-poolingcontainer-1.0.0-48 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\e777ed56981112277219edca650b856f\transformed\jetified-customview-poolingcontainer-1.0.0\res
+com.stdili.app-navigation-runtime-2.7.5-49 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\eceac9b690c4a56bd29189eb6e3ad0f0\transformed\navigation-runtime-2.7.5\res
+com.stdili.app-core-runtime-2.2.0-50 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\f412bab98a99f3b30ae75d3d2ee482bf\transformed\core-runtime-2.2.0\res
+com.stdili.app-jetified-viewpager2-1.1.0-beta02-51 C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\f9b0edbd8fb8440c8f2b40cce50b0022\transformed\jetified-viewpager2-1.1.0-beta02\res
+com.stdili.app-pngs-52 D:\stdili\app\build\generated\res\pngs\debug
+com.stdili.app-res-53 D:\stdili\app\build\generated\res\processDebugGoogleServices
+com.stdili.app-resValues-54 D:\stdili\app\build\generated\res\resValues\debug
+com.stdili.app-packageDebugResources-55 D:\stdili\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.stdili.app-packageDebugResources-56 D:\stdili\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.stdili.app-merged_res-57 D:\stdili\app\build\intermediates\merged_res\debug
+com.stdili.app-debug-58 D:\stdili\app\src\debug\res
+com.stdili.app-main-59 D:\stdili\app\src\main\res

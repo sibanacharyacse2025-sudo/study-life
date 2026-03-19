@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_yellow_background"
+    android:orientation="vertical">
+
+    <!-- Header with Gradient -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_header_blue"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- AI Icon -->
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_ai"
+            android:contentDescription="AI Assistant"
+            android:tint="#FFFFFF"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AI Study Assistant"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Your personal learning companion"
+            android:textColor="#E3F2FD"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <!-- Mood Selector -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
+        android:scrollbars="none">
+        <LinearLayout
+            android:id="@+id/llMoodSelector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+            <Button
+                android:id="@+id/btnQuickHelp"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="💡 Study Tips"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_mood_selector"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginEnd="8dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Messages RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMessages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:clipToPadding="false" />
+
+    <!-- Input Area -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Message Input -->
+        <EditText
+            android:id="@+id/etMessage"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:hint="Ask me anything..."
+            android:textColorHint="#A1887F"
+            android:textColor="#3E2723"
+            android:textSize="15sp"
+            android:background="@drawable/input_field_rounded"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:gravity="center_vertical" />
+
+        <!-- Voice Button -->
+        <ImageButton
+            android:id="@+id/btnVoice"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/button_circular_accent"
+            android:src="@drawable/ic_mic_off"
+            android:contentDescription="Voice Input"
+            android:scaleType="centerInside"
+            android:padding="12dp" />
+
+        <!-- Send Button -->
+        <ImageButton
+            android:id="@+id/btnSend"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/button_circular_send"
+            android:src="@drawable/ic_send"
+            android:contentDescription="Send Message"
+            android:scaleType="centerInside"
+            android:padding="12dp" />
+
+    </LinearLayout>
+
+    <!-- Safety Notice -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="⚠️ Emergency? Contact emergency services or your local counselor"
+        android:textColor="#C41E3A"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:background="@drawable/bg_alert_notice"
+        android:padding="12dp" />
+
+</LinearLayout>

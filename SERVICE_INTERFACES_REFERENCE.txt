@@ -1,0 +1,163 @@
+// Add these listener interfaces to ChatService.java
+
+public interface OnMessageSentListener {
+    void onMessageSent();
+    void onError(String error);
+}
+
+public interface OnChatRoomsLoadedListener {
+    void onChatRoomsLoaded(List<String> roomIds);
+    void onError(String error);
+}
+
+public interface OnGroupCreatedListener {
+    void onGroupCreated(String groupId);
+    void onError(String error);
+}
+
+public interface OnGroupsLoadedListener {
+    void onGroupsLoaded(List<CommunityGroup> groups);
+    void onError(String error);
+}
+
+// Add these methods to ChatService.java if not already there:
+
+public void getUserChatRooms(String userId, OnChatRoomsLoadedListener listener) {
+    // Get all chat rooms where user is a participant
+    db.collection("chatRooms")
+        .whereArrayContains("participants", userId)
+        .addSnapshotListener((querySnapshot, e) -> {
+            if (e != null) {
+                listener.onError(e.getMessage());
+                return;
+            }
+            
+            List<String> roomIds = new ArrayList<>();
+            if (querySnapshot != null) {
+                for (DocumentSnapshot doc : querySnapshot.getDocuments()) {
+                    roomIds.add(doc.getId());
+                }
+            }
+            listener.onChatRoomsLoaded(roomIds);
+        });
+}
+
+// ============================================
+
+// Add these listener interfaces to NotesService.java
+
+public interface OnNoteSavedListener {
+    void onNoteSaved(String noteId);
+    void onError(String error);
+}
+
+public interface OnNotesLoadedListener {
+    void onNotesLoaded(List<StudyNote> notes);
+    void onError(String error);
+}
+
+public interface OnNoteDeletedListener {
+    void onNoteDeleted();
+    void onError(String error);
+}
+
+// Add these methods to NotesService.java if not already there:
+
+public void getUserNotes(String userId, OnNotesLoadedListener listener) {
+    db.collection("notes")
+        .whereEqualTo("userId", userId)
+        .orderBy("createdAt", Query.Direction.DESCENDING)
+        .addSnapshotListener((querySnapshot, e) -> {
+            if (e != null) {
+                listener.onError(e.getMessage());
+                return;
+            }
+            
+            List<StudyNote> notes = new ArrayList<>();
+            if (querySnapshot != null) {
+                for (DocumentSnapshot doc : querySnapshot.getDocuments()) {
+                    StudyNote note = doc.toObject(StudyNote.class);
+                    if (note != null) {
+                        note.setNoteId(doc.getId());
+                        notes.add(note);
+                    }
+                }
+            }
+            listener.onNotesLoaded(notes);
+        });
+}
+
+public void deleteNote(String noteId, OnNoteDeletedListener listener) {
+    db.collection("notes")
+        .document(noteId)
+        .delete()
+        .addOnSuccessListener(aVoid -> listener.onNoteDeleted())
+        .addOnFailureListener(e -> listener.onError(e.getMessage()));
+}
+
+// ============================================
+
+// Add these listener interfaces to ExamService.java
+
+public interface OnExamStartedListener {
+    void onExamStarted();
+    void onError(String error);
+}
+
+public interface OnExamEndedListener {
+    void onExamEnded(String reportId);
+    void onError(String error);
+}
+
+public interface OnActivityRecordedListener {
+    void onActivityRecorded();
+    void onError(String error);
+}
+
+public interface OnReportLoadedListener {
+    void onReport Loaded(List<Map<String, Object>> incidents);
+    void onError(String error);
+}
+
+// Add these methods to ExamService.java if not already there:
+
+public void getMonitoringReport(String examId, String studentId, OnReportLoadedListener listener) {
+    db.collection("exams")
+        .document(examId)
+        .collection("monitoring")
+        .document(studentId)
+        .collection("incidents")
+        .orderBy("timestamp", Query.Direction.DESCENDING)
+        .get()
+        .addOnSuccessListener(querySnapshot -> {
+            List<Map<String, Object>> incidents = new ArrayList<>();
+            for (DocumentSnapshot doc : querySnapshot.getDocuments()) {
+                incidents.add(doc.getData());
+            }
+            listener.onReportLoaded(incidents);
+        })
+        .addOnFailureListener(e -> listener.onError(e.getMessage()));
+}
+
+public void endExamSession(String examId, String studentId, int score, OnExamEndedListener listener) {
+    String reportId = System.currentTimeMillis() + "_" + studentId;
+    
+    db.collection("exams")
+        .document(examId)
+        .collection("results")
+        .document(studentId)
+        .set(new HashMap<String, Object>() {{
+            put("studentId", studentId);
+            put("score", score);
+            put("completedAt", System.currentTimeMillis());
+            put("reportId", reportId);
+        }})
+        .addOnSuccessListener(aVoid -> {
+            db.collection("exams")
+                .document(examId)
+                .update("status", "completed")
+                .addOnSuccessListener(v -> listener.onExamEnded(reportId))
+                .addOnFailureListener(e -> listener.onError(e.getMessage()));
+        })
+        .addOnFailureListener(e -> listener.onError(e.getMessage()));
+}
