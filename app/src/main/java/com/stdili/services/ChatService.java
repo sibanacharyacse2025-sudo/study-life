@@ -1,11 +1,13 @@
 package com.stdili.services;
 
+import android.content.Context;
 import android.util.Log;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.stdili.models.ChatMessage;
 import com.stdili.models.CommunityGroup;
 import com.stdili.models.Message;
+import com.stdili.utils.EncryptionUtil;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -18,9 +20,11 @@ import java.util.Map;
 public class ChatService {
     private static final String TAG = "ChatService";
     private FirebaseFirestore db;
+    private EncryptionUtil encryptionUtil;
 
-    public ChatService() {
+    public ChatService(Context context) {
         this.db = FirebaseFirestore.getInstance();
+        this.encryptionUtil = new EncryptionUtil(context);
     }
 
     /**
@@ -28,10 +32,13 @@ public class ChatService {
      */
     public void saveOneOnOneMessage(String senderId, String senderName, String receiverId, String messageText) {
         try {
+            // Encrypt the message
+            String encryptedText = encryptionUtil.encrypt(messageText);
+
             // Create a chatroom ID based on both users
             String chatRoomId = getChatRoomId(senderId, receiverId);
 
-            ChatMessage chatMessage = new ChatMessage(senderId, senderName, receiverId, messageText);
+            ChatMessage chatMessage = new ChatMessage(senderId, senderName, receiverId, encryptedText);
             chatMessage.setChatRoomId(chatRoomId);
 
             db.collection("chatRooms")
@@ -68,6 +75,8 @@ public class ChatService {
                         queryDocumentSnapshots.forEach(doc -> {
                             ChatMessage msg = doc.toObject(ChatMessage.class);
                             msg.setMessageId(doc.getId());
+                            // Decrypt the message
+                            msg.setMessageText(encryptionUtil.decrypt(msg.getMessageText()));
                             messages.add(msg);
                         });
                         listener.onMessagesLoaded(messages);
@@ -113,7 +122,10 @@ public class ChatService {
      */
     public void saveGroupMessage(String groupId, String senderId, String senderName, String messageText) {
         try {
-            ChatMessage chatMessage = new ChatMessage(senderId, senderName, null, messageText);
+            // Encrypt the message
+            String encryptedText = encryptionUtil.encrypt(messageText);
+
+            ChatMessage chatMessage = new ChatMessage(senderId, senderName, null, encryptedText);
             chatMessage.setChatRoomId(groupId);
 
             db.collection("communityGroups")
@@ -147,6 +159,8 @@ public class ChatService {
                         queryDocumentSnapshots.forEach(doc -> {
                             ChatMessage msg = doc.toObject(ChatMessage.class);
                             msg.setMessageId(doc.getId());
+                            // Decrypt the message
+                            msg.setMessageText(encryptionUtil.decrypt(msg.getMessageText()));
                             messages.add(msg);
                         });
                         listener.onMessagesLoaded(messages);

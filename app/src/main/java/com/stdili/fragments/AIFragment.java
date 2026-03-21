@@ -9,6 +9,8 @@ import android.widget.Button;
 import androidx.fragment.app.Fragment;
 import com.stdili.R;
 import com.stdili.activities.AICounsellorActivity;
+import com.stdili.activities.AITutorActivity;
+import com.stdili.fragments.AIChatFragment;
 
 public class AIFragment extends Fragment {
 
@@ -24,10 +26,16 @@ public class AIFragment extends Fragment {
 
         btnAICounsellor.setOnClickListener(v -> startActivity(new Intent(getContext(), AICounsellorActivity.class)));
         btnAITutor.setOnClickListener(v -> {
-            // Open AI Tutor activity
+            startActivity(new Intent(getContext(), AITutorActivity.class));
         });
         btnAIStudyAssistant.setOnClickListener(v -> {
-            // Open AI Study Assistant (could be the chat fragment)
+            if (getActivity() != null) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragmentContainer, new AIChatFragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
         });
 
         return view;

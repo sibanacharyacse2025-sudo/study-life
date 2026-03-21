@@ -25,6 +25,15 @@ public class LocalAIService {
         listener.onSuccess(generateCounsellorReply(userMessage));
     }
 
+    public void tutorReply(String subject, String topic, String question, OnResponse listener) {
+        if (isBlank(subject) || isBlank(topic) || isBlank(question)) {
+            listener.onFailure("Missing fields");
+            return;
+        }
+        String response = generateTutorResponse(subject.trim(), topic.trim(), question.trim());
+        listener.onSuccess(response);
+    }
+
     public void generateStudyNotes(String subject, String topic, String content, OnResponse listener) {
         if (isBlank(subject) || isBlank(topic) || isBlank(content)) {
             listener.onFailure("Missing fields");
@@ -36,9 +45,14 @@ public class LocalAIService {
     private String generateStudyAssistantReply(String msg) {
         String s = msg.trim().toLowerCase(Locale.ROOT);
 
+        if (isPlanRequest(s)) {
+            int hoursPerDay = extractHoursPerDay(s);
+            return generateDailyPlan(hoursPerDay);
+        }
+
+        // (legacy path) if a plan was requested but we couldn't detect hours, still give a useful starter.
         if (s.contains("timetable") || s.contains("schedule") || s.contains("plan")) {
-            return "Share your subjects + exam date + daily free hours, and I’ll make a simple study plan.\n\n"
-                    + "Quick format:\n- Subjects: ...\n- Exam date: ...\n- Hours/day: ...";
+            return generateDailyPlan(2);
         }
         if (s.contains("pomodoro")) {
             return "Pomodoro is: 25 minutes focus + 5 minutes break. After 4 rounds, take a 15–20 minute break.\n"
@@ -130,6 +144,51 @@ public class LocalAIService {
 
     private boolean isBlank(String s) {
         return s == null || s.trim().isEmpty();
+    }
+
+    private boolean isPlanRequest(String s) {
+        return s.contains("plan") || s.contains("timetable") || s.contains("schedule") || s.contains("routine");
+    }
+
+    private int extractHoursPerDay(String s) {
+        // very small heuristic: finds first number near "hour"/"hr"
+        java.util.regex.Matcher m = java.util.regex.Pattern.compile("(\\d+)\\s*(hours|hour|hrs|hr)").matcher(s);
+        if (m.find()) {
+            try {
+                int v = Integer.parseInt(m.group(1));
+                if (v > 0 && v <= 12) return v;
+            } catch (Exception ignored) {
+            }
+        }
+        return 2;
+    }
+
+    private String generateDailyPlan(int hoursPerDay) {
+        int blocks = hoursPerDay <= 1 ? 2 : (hoursPerDay <= 3 ? 4 : 6);
+        return "Here’s your daily study plan (" + hoursPerDay + " hours/day):\n\n"
+                + "1) Warm-up + recap (15 min)\n"
+                + "2) Deep Study (45–60 min)\n"
+                + "3) Practice / examples (45–60 min)\n"
+                + "4) Quick revision + flash recap (15–20 min)\n\n"
+                + "Next steps:\n"
+                + "- Tell me your subjects + exam date\n"
+                + "- I’ll tailor each block (what to study + what to practice) for your level.\n";
+    }
+
+    private String generateTutorResponse(String subject, String topic, String question) {
+        String q = question;
+        return "Sure! " + subject + " Tutor (" + topic + ")\n\n"
+                + "Step 1 (Concept): In simple terms, " + topic + " means:\n"
+                + "• Explain what it is and why it's useful for this question.\n\n"
+                + "Step 2 (Method): Break the solution into parts:\n"
+                + "• Given: " + q + "\n"
+                + "• Use the main rule/formula for " + topic + "\n"
+                + "• Solve systematically (show each step)\n\n"
+                + "Step 3 (Example): Try this quick example:\n"
+                + "• Do the first 2 steps, then compare your result.\n\n"
+                + "Quick check:\n"
+                + "1) What is the key idea/formula you used?\n"
+                + "2) What step would you repeat if the numbers change?";
     }
 }
 

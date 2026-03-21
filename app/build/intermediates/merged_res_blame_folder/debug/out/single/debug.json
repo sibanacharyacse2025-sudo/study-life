@@ -1,394 +1,410 @@
 [
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_item_mentor.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\item_mentor.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_bg_ai_message_rounded.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/bg_ai_message_rounded.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_fragment_ai_chat.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\fragment_ai_chat.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_network.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_network.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_button_primary_yellow.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\button_primary_yellow.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_ai_tutor.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_ai_tutor.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_item_badge.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\item_badge.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_adeon_tutor.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_adeon_tutor.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_item_peer.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\item_peer.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_item_badge.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/item_badge.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_onboarding_slide3.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\onboarding_slide3.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_ai.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_ai.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_voice.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_voice.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_onboarding_slide4.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/onboarding_slide4.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_item_quick_action.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\item_quick_action.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_bg_message_input.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/bg_message_input.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_group_chat.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_group_chat.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_item_quick_action.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/item_quick_action.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_welcome.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_welcome.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_badge_first_login.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_badge_first_login.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_gradient_yellow_background.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\gradient_yellow_background.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_gradient_header_blue.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/gradient_header_blue.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_fragment_profile.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\fragment_profile.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_ai_counsellor.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_ai_counsellor.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_exam_conductor.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_exam_conductor.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_person.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_person.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_rounded_button.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\rounded_button.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_profile.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_profile.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_splash.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_splash.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_splash.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_splash.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_fragment_groups.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\fragment_groups.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_fragment_study.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/fragment_study.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_fragment_study.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\fragment_study.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_item_message.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/item_message.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_item_message.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\item_message.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_fragment_groups.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/fragment_groups.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_button_mood_selector.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\button_mood_selector.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_button_circular_send.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/button_circular_send.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_fragment_home.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\fragment_home.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_teacher_dashboard.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_teacher_dashboard.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_profile.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_profile.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_input_field_rounded.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/input_field_rounded.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\xml\\backup_rules.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_fragment_peers.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/fragment_peers.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_onboarding_slide2.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\onboarding_slide2.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_community_groups.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_community_groups.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_dot_selected.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\dot_selected.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_mic_off.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_mic_off.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_launcher_foreground.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_voice.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_voice.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\xml\\data_extraction_rules.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_notes.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_notes.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_fragment_mentors.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\fragment_mentors.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_fragment_home.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/fragment_home.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_fragment_peers.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\fragment_peers.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_ai_notes_generator.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_ai_notes_generator.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_bg_ai_message_rounded.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\bg_ai_message_rounded.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_group_chat.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_group_chat.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_placeholder.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_placeholder.xml"
+        "merged": "com.stdili.app-merged_res-57:/xml_backup_rules.xml.flat",
+        "source": "com.stdili.app-main-59:/xml/backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_item_chat_message.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\item_chat_message.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_badge_top_scorer.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_badge_top_scorer.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_settings.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_settings.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_fragment_profile.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/fragment_profile.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_teacher_dashboard.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_teacher_dashboard.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_forgot_password.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_forgot_password.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_bg_alert_notice.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\bg_alert_notice.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_button_primary_yellow.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/button_primary_yellow.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_badge.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_badge.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_gradient_yellow_background.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/gradient_yellow_background.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_button_circular_accent.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\button_circular_accent.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_dot_selected.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/dot_selected.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_ai_counsellor.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_ai_counsellor.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_onboarding_slide2.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/onboarding_slide2.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_network.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_network.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_daily_goals.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_daily_goals.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_daily_goals.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_daily_goals.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_button_circular_accent.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/button_circular_accent.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_network.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_network.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_logo.png.flat",
+        "source": "com.stdili.app-main-59:/drawable/logo.png"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_item_group.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\item_group.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_home.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_home.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_home.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_home.xml"
+        "merged": "com.stdili.app-merged_res-57:/menu_bottom_navigation_menu.xml.flat",
+        "source": "com.stdili.app-main-59:/menu/bottom_navigation_menu.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_button_circular_send.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\button_circular_send.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_thumb_down.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_thumb_down.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_onboarding_slide1.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\onboarding_slide1.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_onboarding_slide1.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/onboarding_slide1.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_dot_unselected.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\dot_unselected.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_bg_user_message_rounded.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/bg_user_message_rounded.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_onboarding_slide4.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\onboarding_slide4.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_add.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_add.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_logo.png.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\logo.png"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_edit_profile.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_edit_profile.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_item_community_group.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\item_community_group.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_item_group.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/item_group.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_person.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_person.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_fragment_network.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/fragment_network.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_community_groups.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_community_groups.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_ai_counsellor_premium.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_ai_counsellor_premium.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_profile.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_profile.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_fragment_ai.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/fragment_ai.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_face.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_face.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_rounded_button.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/rounded_button.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_create_group.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_create_group.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_practice.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_practice.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_gradient_background.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\gradient_background.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_face.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_face.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_badge_top_scorer.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_badge_top_scorer.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_item_peer.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/item_peer.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_practice.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_practice.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_call_24.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_call_24.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_bg_user_message_rounded.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\bg_user_message_rounded.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_create_group.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_create_group.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_signup.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_signup.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_dot_unselected.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/dot_unselected.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_bg_ai_message.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\bg_ai_message.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_onboarding.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_onboarding.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_badge_streak.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_badge_streak.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_network.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_network.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_item_student.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\item_student.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_signup.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_signup.xml"
     },
     {
         "merged": "com.stdili.app-merged_res-57:/drawable_ic_notification.xml.flat",
         "source": "com.stdili.app-main-59:/drawable/ic_notification.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_circle_white_transparent.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\circle_white_transparent.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_badge_streak.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_badge_streak.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_ai_notes_generator.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_ai_notes_generator.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_send.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_send.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_study.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_study.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_otp_verification.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_otp_verification.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_chat.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_chat.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_mentor.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_mentor.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_logo_books.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\logo_books.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_fragment_mentors.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/fragment_mentors.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_fragment_ai.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\fragment_ai.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_main.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_main.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_avatar_circle.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_avatar_circle.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_add.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_add.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_mic_on.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_mic_on.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_mentor.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_mentor.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_study_hub.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_study_hub.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_bg_user_message.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\bg_user_message.xml"
+        "merged": "com.stdili.app-merged_res-57:/xml_data_extraction_rules.xml.flat",
+        "source": "com.stdili.app-main-59:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_material_navigation_back_24.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_material_navigation_back_24.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_logo_books.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/logo_books.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_call_24.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_call_24.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_settings.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_settings.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_input_field_rounded.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\input_field_rounded.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_item_getting_started.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/item_getting_started.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_login.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_login.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_button_mood_selector.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/button_mood_selector.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_item_goal.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\item_goal.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_item_chat_message.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/item_chat_message.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_ai.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_ai.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_bg_alert_notice.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/bg_alert_notice.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_bg_message_input.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\bg_message_input.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_gradient_background.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/gradient_background.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_onboarding.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_onboarding.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_bg_user_message.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/bg_user_message.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_gradient_header_blue.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\gradient_header_blue.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_one_on_one_chat.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_one_on_one_chat.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_badge_first_login.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_badge_first_login.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_placeholder.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_placeholder.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_edit_profile.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_edit_profile.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_bg_ai_message.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/bg_ai_message.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_forgot_password.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_forgot_password.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_welcome.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_welcome.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_mic_off.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_mic_off.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_badge.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_badge.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\menu_bottom_navigation_menu.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\menu\\bottom_navigation_menu.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_item_student.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/item_student.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_pomodoro.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_pomodoro.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_thumb_up.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_thumb_up.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_study_hub.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_study_hub.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_fragment_ai_chat.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/fragment_ai_chat.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_otp_login.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_otp_login.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_item_community_group.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/item_community_group.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_fragment_network.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\fragment_network.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_circle_white_transparent.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/circle_white_transparent.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_mic_on.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_mic_on.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_item_goal.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/item_goal.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_item_getting_started.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\item_getting_started.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_exam_conductor.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_exam_conductor.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_notes.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_notes.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_chat.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_chat.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_send.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_send.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_onboarding_slide3.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/onboarding_slide3.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_ai_counsellor_premium.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_ai_counsellor_premium.xml"
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_material_navigation_back_24.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_material_navigation_back_24.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_one_on_one_chat.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_one_on_one_chat.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_login.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_login.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\layout_activity_otp_verification.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\layout\\activity_otp_verification.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_profile.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_profile.xml"
     },
     {
-        "merged": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-merged_res-57:\\drawable_ic_avatar_circle.xml.flat",
-        "source": "C:\\Users\\SUMAN KUMAR\\.gradle\\daemon\\8.0\\com.stdili.app-main-59:\\drawable\\ic_avatar_circle.xml"
+        "merged": "com.stdili.app-merged_res-57:/layout_item_mentor.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/item_mentor.xml"
+    },
+    {
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_study.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_study.xml"
+    },
+    {
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_otp_login.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_otp_login.xml"
+    },
+    {
+        "merged": "com.stdili.app-merged_res-57:/layout_activity_pomodoro.xml.flat",
+        "source": "com.stdili.app-main-59:/layout/activity_pomodoro.xml"
+    },
+    {
+        "merged": "com.stdili.app-merged_res-57:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.stdili.app-main-59:/drawable/ic_launcher_foreground.xml"
     }
 ]

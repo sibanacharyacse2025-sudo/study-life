@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\stdili\app\src\main\AndroidManifest.xml:2:1-120:12
-INJECTED from D:\stdili\app\src\main\AndroidManifest.xml:2:1-120:12
-INJECTED from D:\stdili\app\src\main\AndroidManifest.xml:2:1-120:12
-INJECTED from D:\stdili\app\src\main\AndroidManifest.xml:2:1-120:12
+ADDED from D:\stdili\app\src\main\AndroidManifest.xml:2:1-126:12
+INJECTED from D:\stdili\app\src\main\AndroidManifest.xml:2:1-126:12
+INJECTED from D:\stdili\app\src\main\AndroidManifest.xml:2:1-126:12
+INJECTED from D:\stdili\app\src\main\AndroidManifest.xml:2:1-126:12
 MERGED from [androidx.navigation:navigation-common:2.7.5] C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\8b6b325b0ec19911bf6901bac18be0c4\transformed\navigation-common-2.7.5\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-runtime:2.7.5] C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\eceac9b690c4a56bd29189eb6e3ad0f0\transformed\navigation-runtime-2.7.5\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-fragment:2.7.5] C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\18105959c0160308b319dd7d443f8665\transformed\navigation-fragment-2.7.5\AndroidManifest.xml:17:1-22:12
@@ -181,8 +181,8 @@ MERGED from [com.google.firebase:firebase-messaging:23.4.0] C:\Users\SUMAN KUMAR
 	android:name
 		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:9:22-74
 application
-ADDED from D:\stdili\app\src\main\AndroidManifest.xml:10:5-119:19
-INJECTED from D:\stdili\app\src\main\AndroidManifest.xml:10:5-119:19
+ADDED from D:\stdili\app\src\main\AndroidManifest.xml:10:5-125:19
+INJECTED from D:\stdili\app\src\main\AndroidManifest.xml:10:5-125:19
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\6ec63a80b2b0caa647d136ab068bb62e\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\6ec63a80b2b0caa647d136ab068bb62e\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\SUMAN KUMAR\.gradle\caches\transforms-3\443fd687f5e2c432d056ddcf23e13384\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -274,7 +274,7 @@ MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\SUMAN KUMAR\.gr
 	android:allowBackup
 		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:11:9-35
 	android:theme
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:18:9-40
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:18:9-52
 	android:dataExtractionRules
 		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:12:9-65
 activity#com.stdili.activities.SplashActivity
@@ -355,124 +355,136 @@ ADDED from D:\stdili\app\src\main\AndroidManifest.xml:56:9-58:40
 		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:58:13-37
 	android:name
 		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:57:13-60
-activity#com.stdili.activities.NetworkActivity
+activity#com.stdili.activities.AdeonTutorActivity
 ADDED from D:\stdili\app\src\main\AndroidManifest.xml:59:9-61:40
 	android:exported
 		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:61:13-37
 	android:name
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:60:13-55
-activity#com.stdili.activities.ProfileActivity
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:60:13-58
+activity#com.stdili.activities.AITutorActivity
 ADDED from D:\stdili\app\src\main\AndroidManifest.xml:62:9-64:40
 	android:exported
 		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:64:13-37
 	android:name
 		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:63:13-55
-activity#com.stdili.activities.TeacherDashboardActivity
+activity#com.stdili.activities.NetworkActivity
 ADDED from D:\stdili\app\src\main\AndroidManifest.xml:65:9-67:40
 	android:exported
 		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:67:13-37
 	android:name
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:66:13-64
-activity#com.stdili.activities.GroupChatActivity
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:66:13-55
+activity#com.stdili.activities.ProfileActivity
 ADDED from D:\stdili\app\src\main\AndroidManifest.xml:68:9-70:40
 	android:exported
 		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:70:13-37
 	android:name
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:69:13-57
-activity#com.stdili.activities.ChatActivity
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:69:13-55
+activity#com.stdili.activities.TeacherDashboardActivity
 ADDED from D:\stdili\app\src\main\AndroidManifest.xml:71:9-73:40
 	android:exported
 		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:73:13-37
 	android:name
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:72:13-52
-activity#com.stdili.activities.EditProfileActivity
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:72:13-64
+activity#com.stdili.activities.GroupChatActivity
 ADDED from D:\stdili\app\src\main\AndroidManifest.xml:74:9-76:40
 	android:exported
 		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:76:13-37
 	android:name
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:75:13-59
-activity#com.stdili.activities.SettingsActivity
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:75:13-57
+activity#com.stdili.activities.ChatActivity
 ADDED from D:\stdili\app\src\main\AndroidManifest.xml:77:9-79:40
 	android:exported
 		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:79:13-37
 	android:name
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:78:13-56
-activity#com.stdili.activities.PomodoroActivity
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:78:13-52
+activity#com.stdili.activities.EditProfileActivity
 ADDED from D:\stdili\app\src\main\AndroidManifest.xml:80:9-82:40
 	android:exported
 		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:82:13-37
 	android:name
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:81:13-56
-activity#com.stdili.activities.DailyGoalsActivity
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:81:13-59
+activity#com.stdili.activities.SettingsActivity
 ADDED from D:\stdili\app\src\main\AndroidManifest.xml:83:9-85:40
 	android:exported
 		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:85:13-37
 	android:name
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:84:13-58
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:84:13-56
+activity#com.stdili.activities.PomodoroActivity
+ADDED from D:\stdili\app\src\main\AndroidManifest.xml:86:9-88:40
+	android:exported
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:88:13-37
+	android:name
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:87:13-56
+activity#com.stdili.activities.DailyGoalsActivity
+ADDED from D:\stdili\app\src\main\AndroidManifest.xml:89:9-91:40
+	android:exported
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:91:13-37
+	android:name
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:90:13-58
 activity#com.stdili.activities.OneOnOneChatActivity
-ADDED from D:\stdili\app\src\main\AndroidManifest.xml:86:9-90:40
+ADDED from D:\stdili\app\src\main\AndroidManifest.xml:92:9-96:40
 	android:parentActivityName
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:89:13-66
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:95:13-66
 	android:label
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:88:13-33
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:94:13-33
 	android:exported
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:90:13-37
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:96:13-37
 	android:name
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:87:13-60
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:93:13-60
 activity#com.stdili.activities.AINoteGeneratorActivity
-ADDED from D:\stdili\app\src\main\AndroidManifest.xml:91:9-95:40
-	android:parentActivityName
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:94:13-66
-	android:label
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:93:13-47
-	android:exported
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:95:13-37
-	android:name
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:92:13-63
-activity#com.stdili.activities.ExamConductorActivity
-ADDED from D:\stdili\app\src\main\AndroidManifest.xml:96:9-101:40
-	android:screenOrientation
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:99:13-49
+ADDED from D:\stdili\app\src\main\AndroidManifest.xml:97:9-101:40
 	android:parentActivityName
 		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:100:13-66
 	android:label
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:98:13-44
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:99:13-47
 	android:exported
 		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:101:13-37
 	android:name
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:97:13-61
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:98:13-63
+activity#com.stdili.activities.ExamConductorActivity
+ADDED from D:\stdili\app\src\main\AndroidManifest.xml:102:9-107:40
+	android:screenOrientation
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:105:13-49
+	android:parentActivityName
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:106:13-66
+	android:label
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:104:13-44
+	android:exported
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:107:13-37
+	android:name
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:103:13-61
 activity#com.stdili.activities.CommunityGroupActivity
-ADDED from D:\stdili\app\src\main\AndroidManifest.xml:102:9-106:40
+ADDED from D:\stdili\app\src\main\AndroidManifest.xml:108:9-112:40
 	android:parentActivityName
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:105:13-66
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:111:13-66
 	android:label
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:104:13-45
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:110:13-45
 	android:exported
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:106:13-37
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:112:13-37
 	android:name
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:103:13-62
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:109:13-62
 activity#com.stdili.activities.CreateGroupActivity
-ADDED from D:\stdili\app\src\main\AndroidManifest.xml:107:9-111:40
+ADDED from D:\stdili\app\src\main\AndroidManifest.xml:113:9-117:40
 	android:parentActivityName
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:110:13-76
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:116:13-76
 	android:label
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:109:13-41
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:115:13-41
 	android:exported
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:111:13-37
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:117:13-37
 	android:name
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:108:13-59
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:114:13-59
 service#com.stdili.services.FirebaseMessagingService
-ADDED from D:\stdili\app\src\main\AndroidManifest.xml:112:9-118:19
+ADDED from D:\stdili\app\src\main\AndroidManifest.xml:118:9-124:19
 	android:exported
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:114:13-37
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:120:13-37
 	android:name
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:113:13-62
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:119:13-62
 intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
-ADDED from D:\stdili\app\src\main\AndroidManifest.xml:115:13-117:29
+ADDED from D:\stdili\app\src\main\AndroidManifest.xml:121:13-123:29
 action#com.google.firebase.MESSAGING_EVENT
-ADDED from D:\stdili\app\src\main\AndroidManifest.xml:116:17-78
+ADDED from D:\stdili\app\src\main\AndroidManifest.xml:122:17-78
 	android:name
-		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:116:25-75
+		ADDED from D:\stdili\app\src\main\AndroidManifest.xml:122:25-75
 uses-sdk
 INJECTED from D:\stdili\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\stdili\app\src\main\AndroidManifest.xml

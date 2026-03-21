@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
+import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -18,12 +20,22 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.stdili.R;
 import com.stdili.adapters.MessageAdapter;
 import com.stdili.models.Message;
+import com.stdili.models.UserProgress;
+import com.stdili.services.AdeonAIService;
+import com.stdili.services.ChatService;
+import com.stdili.services.EnhancedAdeonService;
 import com.stdili.services.LocalAIService;
 import com.stdili.utils.ModerationUtils;
+import com.stdili.utils.NotificationHandler;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 import java.util.List;
 import java.util.Locale;
 
@@ -37,10 +49,16 @@ public class AICounsellorActivity extends AppCompatActivity implements Recogniti
     private List<Message> messages;
     private MessageAdapter adapter;
     private SpeechRecognizer speechRecognizer;
+    private TextToSpeech textToSpeech;
     private boolean isListening = false;
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
 
+    private final AdeonAIService adeonAIService = new AdeonAIService();
     private final LocalAIService localAIService = new LocalAIService();
+    private EnhancedAdeonService enhancedAdeonService;
+    private ChatService chatService;
+    private String conversationId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,20 +72,41 @@ public class AICounsellorActivity extends AppCompatActivity implements Recogniti
         btnQuickHelp = findViewById(R.id.btnQuickHelp);
         llMoodSelector = findViewById(R.id.llMoodSelector);
 
+        String uid = FirebaseAuth.getInstance().getUid();
+        conversationId = (uid != null ? uid + "_adeon_history" : "anon_adeon_history");
+        chatService = new ChatService(this);
+        enhancedAdeonService = new EnhancedAdeonService(this);
+
         messages = new ArrayList<>();
         adapter = new MessageAdapter(messages);
         rvMessages.setLayoutManager(new LinearLayoutManager(this));
         rvMessages.setAdapter(adapter);
 
+        // Set feedback listener
+        adapter.setOnFeedbackListener((position, isPositive) -> {
+            Message message = messages.get(position);
+            saveFeedback(message.getText(), isPositive);
+        });
+
         setupMoodSelector();
         setupSpeechRecognizer();
+        setupTextToSpeech();
 
         btnSend.setOnClickListener(v -> sendMessage());
         btnVoice.setOnClickListener(v -> toggleVoiceInput());
         btnQuickHelp.setOnClickListener(v -> showStudyTips());
 
-        // Add welcome message with emoji
-        messages.add(new Message("👋 Hey there! I'm StudyLife, your AI learning buddy. I'm here to help with studying, motivation, or just to chat. What can I help you with today? 📚", false));
+        // Add welcome message with Adeon's introduction
+        String welcomeMessage = "🎓 **Welcome to ADEON!** 🎓\n\n"
+                + "I'm **Adeon**, your intelligent study companion."
+                + "\n\nI'm specially trained to help you with:\n"
+                + "📚 **Learning** - Any subject (Math, Science, History, Languages)\n"
+                + "💡 **Problem-Solving** - Complex topics explained step-by-step\n"
+                + "📝 **Study Strategies** - Notes, exams, memory techniques\n"
+                + "💪 **Motivation** - Beat procrastination & stress\n"
+                + "💙 **Counseling** - Emotional support for your journey\n\n"
+                + "What can I help you with today? Ask anything! 🚀";
+        messages.add(new Message(welcomeMessage, false));
         adapter.notifyDataSetChanged();
     }
 
@@ -121,8 +160,8 @@ public class AICounsellorActivity extends AppCompatActivity implements Recogniti
     }
 
     private void startListening() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, REQUEST_RECORD_AUDIO_PERMISSION);
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.RECORD_AUDIO}, REQUEST_RECORD_AUDIO_PERMISSION);
             return;
         }
 
@@ -155,7 +194,135 @@ public class AICounsellorActivity extends AppCompatActivity implements Recogniti
             adapter.notifyDataSetChanged();
             etMessage.setText("");
 
-            generateLocalResponse(text);
+            String lower = text.toLowerCase(Locale.ROOT);
+            
+            // Handle personality mode switching
+            if (lower.contains("strict tutor")) {
+                adeonAIService.setPersonality(com.stdili.models.AdeonPersonality.TutorMode.STRICT_TUTOR);
+                messages.add(new Message("Adeon switched to Strict Tutor mode.", false));
+                adapter.notifyDataSetChanged();
+            } else if (lower.contains("friendly coach")) {
+                adeonAIService.setPersonality(com.stdili.models.AdeonPersonality.TutorMode.FRIENDLY_COACH);
+                messages.add(new Message("Adeon switched to Friendly Coach mode.", false));
+                adapter.notifyDataSetChanged();
+            }
+
+            // Handle special commands
+            if (lower.contains("generate notes") || lower.contains("notes")) {
+                handleGenerateNotes(text);
+            } else if (lower.contains("generate practice") || lower.contains("practice questions")) {
+                handleGeneratePractice(text);
+            } else if (lower.contains("analyze progress") || lower.contains("progress")) {
+                handleAnalyzeProgress();
+            } else if (lower.contains("create plan")) {
+                handleCreatePlan(text);
+            } else {
+                // Regular chat
+                String uid = FirebaseAuth.getInstance().getUid();
+                if (uid != null && chatService != null) {
+                    chatService.saveMessage(uid, conversationId, text, true);
+                }
+
+                maybeNotifyPlan(text);
+                generateLocalResponse(text);
+            }
+        }
+    }
+
+    private void handleGenerateNotes(String userInput) {
+        // Extract subject and topic from input (simple parsing)
+        messages.add(new Message("📝 Generating structured notes...", false));
+        adapter.notifyDataSetChanged();
+
+        enhancedAdeonService.generateStructuredNotes("Mathematics", "Algebra", 
+                "Algebra is fundamental to mathematics...", new EnhancedAdeonService.OnNotesGenerated() {
+            @Override
+            public void onSuccess(com.stdili.models.StudyNotes notes) {
+                String formattedNotes = notes.toFormattedString();
+                removeTypingIfPresent();
+                messages.add(new Message(formattedNotes, false));
+                adapter.notifyDataSetChanged();
+                rvMessages.smoothScrollToPosition(messages.size() - 1);
+                speakText("Notes generated successfully. Review the detailed content above.");
+            }
+
+            @Override
+            public void onFailure(String error) {
+                removeTypingIfPresent();
+                messages.add(new Message("Failed to generate notes: " + error, false));
+                adapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    private void handleGeneratePractice(String userInput) {
+        messages.add(new Message("🎯 Generating 10 practice questions...", false));
+        adapter.notifyDataSetChanged();
+
+        enhancedAdeonService.generatePracticeQuestions("Mathematics", "Algebra",
+                new EnhancedAdeonService.OnPracticeGenerated() {
+            @Override
+            public void onSuccess(List<com.stdili.models.PracticeQuestion> questions) {
+                removeTypingIfPresent();
+                StringBuilder allQuestions = new StringBuilder();
+                allQuestions.append("📋 PRACTICE SET: 10 Questions (Easy 3, Medium 4, Hard 3)\n");
+                allQuestions.append("═════════════════════════════════════════════\n");
+                
+                for (com.stdili.models.PracticeQuestion q : questions) {
+                    allQuestions.append(q.toFormattedString());
+                }
+                
+                messages.add(new Message(allQuestions.toString(), false));
+                adapter.notifyDataSetChanged();
+                rvMessages.smoothScrollToPosition(messages.size() - 1);
+                speakText("Practice questions generated. Start solving and improve your accuracy.");
+            }
+
+            @Override
+            public void onFailure(String error) {
+                removeTypingIfPresent();
+                messages.add(new Message("Failed to generate practice: " + error, false));
+                adapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    private void handleAnalyzeProgress() {
+        messages.add(new Message("📊 Analyzing your progress...", false));
+        adapter.notifyDataSetChanged();
+
+        enhancedAdeonService.analyzeProgress(new EnhancedAdeonService.OnProgressAnalyzed() {
+            @Override
+            public void onSuccess(String analysis) {
+                removeTypingIfPresent();
+                messages.add(new Message(analysis, false));
+                adapter.notifyDataSetChanged();
+                rvMessages.smoothScrollToPosition(messages.size() - 1);
+                speakText(analysis.substring(0, Math.min(300, analysis.length())));
+            }
+
+            @Override
+            public void onFailure(String error) {
+                removeTypingIfPresent();
+                messages.add(new Message("Failed to analyze: " + error, false));
+                adapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    private void handleCreatePlan(String userInput) {
+        String uid = FirebaseAuth.getInstance().getUid();
+        if (uid != null) {
+            enhancedAdeonService.createPlan(uid, "Study Plan", 
+                    java.util.Arrays.asList("Math", "Science"), 2, "2026-03-28");
+            
+            messages.add(new Message("✅ Study plan created!\n" +
+                    "📱 You'll receive daily reminders\n" +
+                    "🔔 Notifications for missed goals\n" +
+                    "⏰ Accountability checks\n" +
+                    "🎯 Track your progress daily", false));
+            adapter.notifyDataSetChanged();
+            speakText("Study plan created successfully. Check notifications for daily reminders.");
         }
     }
 
@@ -165,7 +332,7 @@ public class AICounsellorActivity extends AppCompatActivity implements Recogniti
         adapter.notifyDataSetChanged();
         rvMessages.smoothScrollToPosition(messages.size() - 1);
 
-        localAIService.counsellorReply(prompt, new LocalAIService.OnResponse() {
+        adeonAIService.chat(prompt, new AdeonAIService.OnResponse() {
             @Override
             public void onSuccess(String response) {
                 runOnUiThread(() -> {
@@ -173,16 +340,42 @@ public class AICounsellorActivity extends AppCompatActivity implements Recogniti
                     messages.add(new Message(response, false));
                     adapter.notifyDataSetChanged();
                     rvMessages.smoothScrollToPosition(messages.size() - 1);
+                    speakText(response);
+
+                    String uid = FirebaseAuth.getInstance().getUid();
+                    if (uid != null && chatService != null) {
+                        chatService.saveMessage(uid, conversationId, response, false);
+                    }
+
+                    if (response.toLowerCase(Locale.ROOT).contains("senior")) {
+                        maybeNotifySenior(response);
+                    }
                 });
             }
 
             @Override
             public void onFailure(String error) {
-                runOnUiThread(() -> {
-                    removeTypingIfPresent();
-                    messages.add(new Message("I’m here with you. Tell me what’s going on, and we’ll take it step by step.", false));
-                    adapter.notifyDataSetChanged();
-                    rvMessages.smoothScrollToPosition(messages.size() - 1);
+                localAIService.counsellorReply(prompt, new LocalAIService.OnResponse() {
+                    @Override
+                    public void onSuccess(String response) {
+                        runOnUiThread(() -> {
+                            removeTypingIfPresent();
+                            messages.add(new Message(response, false));
+                            adapter.notifyDataSetChanged();
+                            rvMessages.smoothScrollToPosition(messages.size() - 1);
+                            speakText(response);
+                        });
+                    }
+
+                    @Override
+                    public void onFailure(String error) {
+                        runOnUiThread(() -> {
+                            removeTypingIfPresent();
+                            messages.add(new Message("I’m here with you. Tell me what’s going on, and we’ll take it step by step.", false));
+                            adapter.notifyDataSetChanged();
+                            rvMessages.smoothScrollToPosition(messages.size() - 1);
+                        });
+                    }
                 });
             }
         });
@@ -192,6 +385,82 @@ public class AICounsellorActivity extends AppCompatActivity implements Recogniti
         if (messages.size() > 0 && "...".equals(messages.get(messages.size() - 1).getText())) {
             messages.remove(messages.size() - 1);
         }
+    }
+
+    private void maybeNotifyPlan(String prompt) {
+        if (prompt == null) return;
+        String s = prompt.toLowerCase();
+        boolean isPlan = s.contains("plan") || s.contains("timetable") || s.contains("schedule") || s.contains("routine");
+        if (!isPlan) return;
+
+        String uid = FirebaseAuth.getInstance().getUid();
+        new NotificationHandler(this).notifyUser(uid, "Time to study! Open your daily plan");
+    }
+
+    private void maybeNotifySenior(String aiAnswer) {
+        if (aiAnswer == null || aiAnswer.trim().isEmpty()) return;
+        if (aiAnswer.toLowerCase(Locale.ROOT).contains("senior")) {
+            String uid = FirebaseAuth.getInstance().getUid();
+            new NotificationHandler(this).notifyUser(uid, "Senior-style advice available: check your Adeon chat updates");
+        }
+    }
+
+    private void setupTextToSpeech() {
+        textToSpeech = new TextToSpeech(this, status -> {
+            if (status != TextToSpeech.SUCCESS) {
+                Log.e("AICounsellorActivity", "TextToSpeech initialization failed");
+            } else {
+                textToSpeech.setLanguage(Locale.getDefault());
+            }
+        });
+    }
+
+    private void speakText(String text) {
+        if (textToSpeech == null || textToSpeech.isSpeaking()) return;
+        
+        // Clean up markdown and emojis for TTS
+        String cleanText = text
+                .replaceAll("[#*_`~【】【】═]", "")
+                .replaceAll("[🎓📚💡💙🎯📷🌍🧾🔔⏰🌟⭐👍📚❌⛔🎉🚀]", "")
+                .replaceAll("\\n+", ". ");
+        
+        if (cleanText.length() > 200) {
+            cleanText = cleanText.substring(0, 200) + "...";
+        }
+        
+        textToSpeech.speak(cleanText, TextToSpeech.QUEUE_FLUSH, null, "AdeonTTS");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (speechRecognizer != null) {
+            speechRecognizer.destroy();
+        }
+        if (textToSpeech != null) {
+            textToSpeech.stop();
+            textToSpeech.shutdown();
+        }
+    }
+
+    private void saveFeedback(String aiResponse, boolean isPositive) {
+        String uid = FirebaseAuth.getInstance().getUid();
+        if (uid == null) return;
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("feedback")
+                .add(new Object() {
+                    public String userId = uid;
+                    public String response = aiResponse;
+                    public boolean positive = isPositive;
+                    public long timestamp = System.currentTimeMillis();
+                })
+                .addOnSuccessListener(documentReference -> {
+                    Toast.makeText(this, "Thank you for your feedback!", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("AICounsellorActivity", "Failed to save feedback", e);
+                });
     }
 
     @Override
@@ -231,11 +500,4 @@ public class AICounsellorActivity extends AppCompatActivity implements Recogniti
     @Override
     public void onEvent(int eventType, Bundle params) {}
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (speechRecognizer != null) {
-            speechRecognizer.destroy();
-        }
-    }
 }

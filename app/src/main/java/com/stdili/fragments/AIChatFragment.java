@@ -13,6 +13,8 @@ import com.stdili.R;
 import com.stdili.adapters.MessageAdapter;
 import com.stdili.models.Message;
 import com.stdili.services.LocalAIService;
+import com.google.firebase.auth.FirebaseAuth;
+import com.stdili.utils.NotificationHandler;
 import com.stdili.utils.ModerationUtils;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +63,7 @@ public class AIChatFragment extends Fragment {
             adapter.notifyDataSetChanged();
             etMessage.setText("");
 
+            maybeNotifyPlan(text);
             generateLocalResponse(text);
         }
     }
@@ -100,5 +103,15 @@ public class AIChatFragment extends Fragment {
         if (!messages.isEmpty() && "...".equals(messages.get(messages.size() - 1).getText())) {
             messages.remove(messages.size() - 1);
         }
+    }
+
+    private void maybeNotifyPlan(String prompt) {
+        if (prompt == null) return;
+        String s = prompt.toLowerCase();
+        boolean isPlan = s.contains("plan") || s.contains("timetable") || s.contains("schedule") || s.contains("routine");
+        if (!isPlan) return;
+
+        String uid = FirebaseAuth.getInstance().getUid();
+        new NotificationHandler(requireContext()).notifyUser(uid, "Time to study! Open your daily plan");
     }
 }

@@ -51,6 +51,33 @@
             android:textSize="15sp"
             android:lineSpacingExtra="2dp" />
 
+        <!-- Feedback buttons -->
+        <LinearLayout
+            android:id="@+id/llFeedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:visibility="gone">
+
+            <ImageButton
+                android:id="@+id/btnThumbsUp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_thumb_up"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="Thumbs up" />
+
+            <ImageButton
+                android:id="@+id/btnThumbsDown"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_thumb_down"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="Thumbs down" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:padding="16dp">
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🎓 Adeon Tutor"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Messages RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMessages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvHeader"
+        android:layout_above="@id/llInputSection"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Input Section -->
+    <LinearLayout
+        android:id="@+id/llInputSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="@drawable/rounded_button"
+        android:padding="12dp">
+
+        <!-- Subject Input -->
+        <EditText
+            android:id="@+id/etSubject"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="📚 Subject (e.g., Mathematics, Biology)"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:background="@drawable/input_field_rounded"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp"
+            android:inputType="text" />
+
+        <!-- Topic Input -->
+        <EditText
+            android:id="@+id/etTopic"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="🎯 Topic (e.g., Photosynthesis)"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:background="@drawable/input_field_rounded"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp"
+            android:inputType="text" />
+
+        <!-- Question Input -->
+        <EditText
+            android:id="@+id/etQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:hint="❓ Ask your question..."
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:background="@drawable/input_field_rounded"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"
+            android:inputType="textMultiLine"
+            android:gravity="top" />
+
+        <!-- Get Help Button -->
+        <Button
+            android:id="@+id/btnGetHelp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="🚀 Get Adeon's Help"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:background="@drawable/button_primary_yellow" />
+
+    </LinearLayout>
+
+</RelativeLayout>

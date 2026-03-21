@@ -3153,6 +3153,8 @@ drawable ic_profile
 drawable ic_search_black_24
 drawable ic_send
 drawable ic_study
+drawable ic_thumb_down
+drawable ic_thumb_up
 drawable ic_voice
 drawable input_field_rounded
 drawable logo
@@ -3348,6 +3350,7 @@ id btnAIStudyAssistant
 id btnAITutor
 id btnAddGoal
 id btnAllGroups
+id btnAsk
 id btnBack
 id btnCall
 id btnCancel
@@ -3362,16 +3365,19 @@ id btnCreateGroup
 id btnEditProfile
 id btnFlashcards
 id btnGenerateNotes
+id btnGetHelp
 id btnGuest
 id btnJoin
 id btnJoinGroup
 id btnLogin
 id btnLogout
+id btnMinus
 id btnMoodConfused
 id btnMoodHappy
 id btnMoodSad
 id btnMoodStressed
 id btnPdfLibrary
+id btnPlus
 id btnPomodoro
 id btnPractice
 id btnProjects
@@ -3392,6 +3398,8 @@ id btnStudent
 id btnStudies
 id btnStudyGroups
 id btnTeacher
+id btnThumbsDown
+id btnThumbsUp
 id btnToggleVoice
 id btnVerify
 id btnViewMembers
@@ -3498,6 +3506,7 @@ id etName
 id etOtp
 id etPassword
 id etPhone
+id etQuestion
 id etSubject
 id etTopic
 id exitUntilCollapsed
@@ -3581,6 +3590,8 @@ id list_item
 id llAiMessage
 id llCategoryOptions
 id llCategoryTabs
+id llFeedback
+id llInputSection
 id llMessageContainer
 id llMoodSelector
 id llUserMessage
@@ -3803,6 +3814,7 @@ id stretch
 id submenuarrow
 id submit_area
 id supportScrollUp
+id swDarkMode
 id swNotifications
 id swPrivacy
 id tabLayout
@@ -3856,6 +3868,7 @@ id triangle
 id tvAIStatus
 id tvActivity
 id tvAiMessage
+id tvAnswer
 id tvAppName
 id tvCameraStatus
 id tvCategory
@@ -3870,6 +3883,7 @@ id tvGeneratedNotes
 id tvGreeting
 id tvGroupDescription
 id tvGroupName
+id tvHeader
 id tvLevel
 id tvMemberCount
 id tvMembers
@@ -4036,9 +4050,11 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_adeon_tutor
 layout activity_ai_counsellor
 layout activity_ai_counsellor_premium
 layout activity_ai_notes_generator
+layout activity_ai_tutor
 layout activity_chat
 layout activity_community_groups
 layout activity_create_group

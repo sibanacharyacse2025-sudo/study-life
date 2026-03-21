@@ -5,6 +5,19 @@
     android:padding="16dp"
     android:background="@drawable/gradient_background">
 
+    <!-- Plus button -->
+    <Button
+        android:id="@+id/btnPlus"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_above="@+id/tvTimer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:text="+"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:background="@drawable/button_circular_send"/>
+
     <TextView
         android:id="@+id/tvTimer"
         android:layout_width="wrap_content"
@@ -15,11 +28,24 @@
         android:textSize="80sp"
         android:textStyle="bold" />
 
+    <!-- Minus button -->
+    <Button
+        android:id="@+id/btnMinus"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/tvTimer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="−"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:background="@drawable/button_circular_send"/>
+
     <Button
         android:id="@+id/btnStartPause"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvTimer"
+        android:layout_below="@id/btnMinus"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
         android:text="Start"

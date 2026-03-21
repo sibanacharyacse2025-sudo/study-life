@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent_green">#4CAF50</color>
+    <color name="accent_orange">#FF9800</color>
+    <color name="accent_orange_dark">#FF6F00</color>
+    <color name="accent_red">#C41E3A</color>
+    <color name="black">#FF000000</color>
+    <color name="card_background">#F5F5F5</color>
+    <color name="gradient_end">#4ECDC4</color>
+    <color name="gradient_start">#FF6B6B</color>
+    <color name="gray_dark">#424242</color>
+    <color name="gray_light">#F5F5F5</color>
+    <color name="gray_medium">#BDBDBD</color>
+    <color name="message_ai">#E8F5E9</color>
+    <color name="message_user">#FFF9C4</color>
+    <color name="pink">#FFE91E63</color>
+    <color name="primary_blue">#2E5090</color>
+    <color name="primary_blue_dark">#1565C0</color>
+    <color name="primary_blue_light">#E3F2FD</color>
+    <color name="primary_yellow">#FFD700</color>
+    <color name="primary_yellow_dark">#FFC700</color>
+    <color name="primary_yellow_light">#FFF8E1</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="text_hint">#A1887F</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="ai">AI</string>
+    <string name="ai_chat_tab">AI Chat</string>
+    <string name="ai_tutor">AI Tutor</string>
+    <string name="app_name">Stdili</string>
+    <string name="badges">Badges</string>
+    <string name="block">Block</string>
+    <string name="chat">Chat</string>
+    <string name="continue_as_guest">Continue as Guest</string>
+    <string name="continue_as_student">Continue as Student</string>
+    <string name="continue_as_teacher">Continue as Teacher</string>
+    <string name="create_group">Create Group</string>
+    <string name="default_web_client_id" translatable="false">855798603957-fvj0ju48o9au917d4r47vd57f14tvvnt.apps.googleusercontent.com</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="email">Email</string>
+    <string name="emergency">Emergency Support</string>
+    <string name="face_tutor">Face Tutor</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="gcm_defaultSenderId" translatable="false">855798603957</string>
+    <string name="getting_started">Getting Started</string>
+    <string name="good_evening">Good Evening, %s</string>
+    <string name="google_api_key" translatable="false">AIzaSyCgH1PCcQdPHRF8qaX6j3GnO0nzSgAiBng</string>
+    <string name="google_app_id" translatable="false">1:855798603957:android:60a61bde75cd959db59efc</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCgH1PCcQdPHRF8qaX6j3GnO0nzSgAiBng</string>
+    <string name="google_storage_bucket" translatable="false">fortheunity.firebasestorage.app</string>
+    <string name="groups_tab">Groups</string>
+    <string name="help_support">Help &amp; Support</string>
+    <string name="home">Home</string>
+    <string name="join_group">Join Group</string>
+    <string name="level">Level</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="mentors">Mentors</string>
+    <string name="mentors_tab">Mentors</string>
+    <string name="mood">How are you feeling?</string>
+    <string name="network">Network</string>
+    <string name="notifications">Notifications</string>
+    <string name="offline">Offline</string>
+    <string name="online">Online</string>
+    <string name="otp">OTP</string>
+    <string name="password">Password</string>
+    <string name="peers_tab">Peers</string>
+    <string name="phone">Phone</string>
+    <string name="points">Points</string>
+    <string name="practice">Practice</string>
+    <string name="privacy">Privacy</string>
+    <string name="profile">Profile</string>
+    <string name="project_id" translatable="false">fortheunity</string>
+    <string name="quick_help">Quick Help</string>
+    <string name="report">Report</string>
+    <string name="reset_link_sent">Reset link sent to your email</string>
+    <string name="send">Send</string>
+    <string name="send_reset_link">Send Reset Link</string>
+    <string name="settings">Settings</string>
+    <string name="signup">Sign Up</string>
+    <string name="smart_notes">Smart Notes</string>
+    <string name="streak">Streak</string>
+    <string name="study">Study</string>
+    <string name="study_hours">Study Hours</string>
+    <string name="voice">Voice</string>
+    <string name="voice_chat">Voice Chat</string>
+    <style name="AppTheme" parent="Theme.Material3.DayNight">
+        
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor">@color/purple_500</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="CardViewStyle" parent="CardView.Light">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+    <style name="RoundedButton" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">24dp</item>
+        <item name="backgroundTint">@color/purple_500</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>

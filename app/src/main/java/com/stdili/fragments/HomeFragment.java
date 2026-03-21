@@ -8,11 +8,12 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.stdili.R;
 import com.stdili.adapters.QuickActionAdapter;
 import com.stdili.adapters.GettingStartedAdapter;
 import com.stdili.adapters.BadgeAdapter;
-import com.stdili.activities.AICounsellorActivity;
+import com.stdili.activities.AITutorActivity;
 import com.stdili.activities.PomodoroActivity;
 import com.stdili.activities.DailyGoalsActivity;
 import com.stdili.models.QuickAction;
@@ -21,6 +22,8 @@ import com.stdili.models.Badge;
 import android.content.Intent;
 import java.util.ArrayList;
 import java.util.List;
+import com.stdili.utils.FirebaseHelper;
+import com.stdili.utils.LevelSystem;
 
 public class HomeFragment extends Fragment implements QuickActionAdapter.OnActionClickListener {
 
@@ -56,12 +59,45 @@ public class HomeFragment extends Fragment implements QuickActionAdapter.OnActio
     }
 
     private void loadUserData() {
-        // Fetch from Firebase or local
-        tvGreeting.setText(String.format(getString(R.string.good_evening), "User"));
-        tvStudyHours.setText("10 hours");
-        tvStreak.setText("5 days");
-        tvPoints.setText("500");
-        tvLevel.setText("Level 3");
+        String uid = FirebaseAuth.getInstance().getUid();
+        if (uid == null) {
+            tvGreeting.setText(String.format(getString(R.string.good_evening), "User"));
+            tvStudyHours.setText("0 hours");
+            tvStreak.setText("0 days");
+            tvPoints.setText("0");
+            tvLevel.setText("Level 1");
+            return;
+        }
+
+        FirebaseHelper.getUser(uid, user -> {
+            if (user == null) {
+                tvGreeting.setText(String.format(getString(R.string.good_evening), "User"));
+                tvStudyHours.setText("0 hours");
+                tvStreak.setText("0 days");
+                tvPoints.setText("0");
+                tvLevel.setText("Level 1");
+                return;
+            }
+
+            String name = user.getName();
+            if (name == null || name.trim().isEmpty()) {
+                name = user.getEmail();
+            }
+            if (name == null || name.trim().isEmpty()) {
+                name = "User";
+            }
+
+            int level = user.getLevel();
+            if (level <= 0) {
+                level = LevelSystem.calculateLevel(user.getXp());
+            }
+
+            tvGreeting.setText(String.format(getString(R.string.good_evening), name));
+            tvStudyHours.setText(user.getStudyHours() + " hours");
+            tvStreak.setText(user.getStreak() + " days");
+            tvPoints.setText(String.valueOf(user.getCoins()));
+            tvLevel.setText("Level " + level);
+        });
     }
 
     private void setupQuickActions() {
@@ -82,7 +118,7 @@ public class HomeFragment extends Fragment implements QuickActionAdapter.OnActio
     @Override
     public void onActionClick(QuickAction action) {
         if (action.getTitle().equals("AI Tutor")) {
-            startActivity(new Intent(getContext(), AICounsellorActivity.class));
+            startActivity(new Intent(getContext(), AITutorActivity.class));
         } else if (action.getTitle().equals("Pomodoro")) {
             startActivity(new Intent(getContext(), PomodoroActivity.class));
         } else if (action.getTitle().equals("Goals")) {

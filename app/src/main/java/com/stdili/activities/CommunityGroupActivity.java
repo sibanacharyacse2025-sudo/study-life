@@ -48,7 +48,7 @@ public class CommunityGroupActivity extends AppCompatActivity {
         categoryProjectsButton = findViewById(R.id.btnProjects);
         categoryCareerButton = findViewById(R.id.btnCareer);
 
-        chatService = new ChatService();
+        chatService = new ChatService(this);
         currentUserId = "currentUserId"; // Replace with actual current user ID
 
         setTitle("Community Groups");

@@ -12,9 +12,11 @@ import java.util.Locale;
 public class PomodoroActivity extends AppCompatActivity {
 
     private static final long START_TIME_IN_MILLIS = 1500000; // 25 minutes
+    private static final long MIN_TIME_IN_MILLIS = 60000; // 1 minute minimum
+    private static final long MAX_TIME_IN_MILLIS = 3600000; // 60 minutes maximum
 
     private TextView tvTimer;
-    private Button btnStartPause, btnReset;
+    private Button btnStartPause, btnReset, btnPlus, btnMinus;
 
     private CountDownTimer countDownTimer;
     private boolean timerRunning;
@@ -28,6 +30,8 @@ public class PomodoroActivity extends AppCompatActivity {
         tvTimer = findViewById(R.id.tvTimer);
         btnStartPause = findViewById(R.id.btnStartPause);
         btnReset = findViewById(R.id.btnReset);
+        btnPlus = findViewById(R.id.btnPlus);
+        btnMinus = findViewById(R.id.btnMinus);
 
         btnStartPause.setOnClickListener(v -> {
             if (timerRunning) {
@@ -38,6 +42,9 @@ public class PomodoroActivity extends AppCompatActivity {
         });
 
         btnReset.setOnClickListener(v -> resetTimer());
+
+        btnPlus.setOnClickListener(v -> addOneMinute());
+        btnMinus.setOnClickListener(v -> subtractOneMinute());
 
         updateCountDownText();
     }
@@ -84,5 +91,25 @@ public class PomodoroActivity extends AppCompatActivity {
 
         String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
         tvTimer.setText(timeLeftFormatted);
+    }
+
+    private void addOneMinute() {
+        if (!timerRunning) {
+            long newTime = timeLeftInMillis + 60000; // Add 1 minute (60000 ms)
+            if (newTime <= MAX_TIME_IN_MILLIS) {
+                timeLeftInMillis = newTime;
+                updateCountDownText();
+            }
+        }
+    }
+
+    private void subtractOneMinute() {
+        if (!timerRunning) {
+            long newTime = timeLeftInMillis - 60000; // Subtract 1 minute (60000 ms)
+            if (newTime >= MIN_TIME_IN_MILLIS) {
+                timeLeftInMillis = newTime;
+                updateCountDownText();
+            }
+        }
     }
 }

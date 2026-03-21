@@ -9,10 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import com.google.firebase.auth.FirebaseAuth;
+import com.stdili.utils.FirebaseHelper;
 import com.stdili.R;
 import com.stdili.activities.EditProfileActivity;
 import com.stdili.activities.SettingsActivity;
 import com.stdili.activities.WelcomeActivity;
+import com.stdili.utils.LevelSystem;
 
 public class ProfileFragment extends Fragment {
 
@@ -41,10 +43,40 @@ public class ProfileFragment extends Fragment {
     }
 
     private void loadUserData() {
-        // Load from Firebase
-        tvName.setText("John Doe");
-        tvLevel.setText("Level 5");
-        tvCoins.setText("1250 Coins");
+        String uid = FirebaseAuth.getInstance().getUid();
+        if (uid == null) {
+            tvName.setText("User");
+            tvLevel.setText("Level 1");
+            tvCoins.setText("0 Coins");
+            return;
+        }
+
+        FirebaseHelper.getUser(uid, user -> {
+            if (user == null) {
+                tvName.setText("User");
+                tvLevel.setText("Level 1");
+                tvCoins.setText("0 Coins");
+                return;
+            }
+
+            String name = user.getName();
+            if (name == null || name.trim().isEmpty()) {
+                name = user.getEmail();
+            }
+            if (name == null || name.trim().isEmpty()) {
+                name = "User";
+            }
+
+            int level = user.getLevel();
+            // Backfill if level was not saved yet
+            if (level <= 0) {
+                level = LevelSystem.calculateLevel(user.getXp());
+            }
+
+            tvName.setText(name);
+            tvLevel.setText("Level " + level);
+            tvCoins.setText(user.getCoins() + " Coins");
+        });
     }
 
     private void logout() {

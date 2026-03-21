@@ -43,7 +43,7 @@ public class CreateGroupActivity extends AppCompatActivity {
         createButton = findViewById(R.id.btnCreateGroup);
         cancelButton = findViewById(R.id.btnCancel);
 
-        chatService = new ChatService();
+        chatService = new ChatService(this);
         currentUserId = "currentUserId"; // Replace with actual current user ID
         currentUserRole = "teacher"; // Replace with actual role fetch
 

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AI Tutor"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/etSubject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Subject (e.g., Math)"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/input_field_rounded"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/text_secondary" />
+
+        <EditText
+            android:id="@+id/etTopic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Topic (e.g., Quadratic Equations)"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/input_field_rounded"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/text_secondary" />
+
+        <EditText
+            android:id="@+id/etQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Your question"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/input_field_rounded"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/text_secondary"
+            android:minLines="3"
+            android:gravity="top"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/btnAsk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ask Tutor"
+            style="@style/RoundedButton"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/tvAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:lineSpacingExtra="4dp"
+            android:text=""/>
+
+    </LinearLayout>
+</ScrollView>
+
