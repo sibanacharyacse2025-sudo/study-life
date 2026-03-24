@@ -12,7 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.stdili.R;
 import com.stdili.adapters.CommunityGroupAdapter;
 import com.stdili.models.CommunityGroup;
-import com.stdili.services.ChatService;
+import com.stdili.network.ApiClient;
+import com.stdili.utils.SecureSessionManager;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +27,7 @@ public class CommunityGroupActivity extends AppCompatActivity {
     private Button categoryAllButton, categoryStudiesButton, categoryProjectsButton, categoryCareerButton;
     private CommunityGroupAdapter groupAdapter;
     private List<CommunityGroup> allGroups, filteredGroups;
-    private ChatService chatService;
+    private ApiClient apiClient;
     private String currentUserRole;
     private String currentUserId;
     private String currentCategory = "all";
@@ -48,8 +51,9 @@ public class CommunityGroupActivity extends AppCompatActivity {
         categoryProjectsButton = findViewById(R.id.btnProjects);
         categoryCareerButton = findViewById(R.id.btnCareer);
 
-        chatService = new ChatService(this);
-        currentUserId = "currentUserId"; // Replace with actual current user ID
+        SecureSessionManager sessionManager = new SecureSessionManager(this);
+        apiClient = ApiClient.getInstance(sessionManager);
+        currentUserId = sessionManager.getUserId();
 
         setTitle("Community Groups");
 
@@ -72,33 +76,60 @@ public class CommunityGroupActivity extends AppCompatActivity {
     }
 
     private void fetchUserRoleAndLoadGroups() {
-        // Fetch user role from Firebase/Service
-        // For now, mock data
-        currentUserRole = "student"; // Replace with actual role fetch
-
-        // Check if user can create groups
-        boolean canCreateGroup = "teacher".equalsIgnoreCase(currentUserRole) || 
-                                 "senior".equalsIgnoreCase(currentUserRole);
-        createGroupButton.setEnabled(canCreateGroup);
-        if (!canCreateGroup) {
+        if (currentUserId == null) {
+            currentUserRole = "guest";
+            createGroupButton.setEnabled(false);
             createGroupButton.setAlpha(0.5f);
+            loadGroups();
+            return;
         }
 
-        loadGroups();
+        com.stdili.utils.FirebaseHelper.getUser(currentUserId, user -> {
+            currentUserRole = user != null ? user.getRole() : "junior";
+            boolean canCreateGroup = "teacher".equalsIgnoreCase(currentUserRole) ||
+                    "senior".equalsIgnoreCase(currentUserRole);
+            createGroupButton.setEnabled(canCreateGroup);
+            createGroupButton.setAlpha(canCreateGroup ? 1f : 0.5f);
+            loadGroups();
+        });
     }
 
     private void loadGroups() {
-        chatService.getCommunityGroups(new ChatService.OnGroupsLoadedListener() {
+        apiClient.get("/api/groups", true, new ApiClient.ApiCallback() {
             @Override
-            public void onGroupsLoaded(List<CommunityGroup> groups) {
-                allGroups.clear();
-                allGroups.addAll(groups);
-                filterGroups(currentCategory); // Apply current filter
+            public void onSuccess(JSONObject data) {
+                runOnUiThread(() -> {
+                    allGroups.clear();
+                    JSONArray groups = data.optJSONArray("groups");
+                    if (groups != null) {
+                        for (int i = 0; i < groups.length(); i++) {
+                            JSONObject g = groups.optJSONObject(i);
+                            if (g == null) continue;
+                            CommunityGroup group = new CommunityGroup();
+                            group.setGroupId(g.optString("_id", ""));
+                            group.setName(g.optString("name", ""));
+                            group.setDescription(g.optString("description", ""));
+                            group.setCategory(g.optString("category", "General"));
+                            group.setCreatorId(g.optString("adminId", ""));
+                            JSONArray membersJson = g.optJSONArray("members");
+                            List<String> members = new ArrayList<>();
+                            if (membersJson != null) {
+                                for (int m = 0; m < membersJson.length(); m++) {
+                                    members.add(membersJson.optString(m));
+                                }
+                            }
+                            group.setMembers(members);
+                            group.setMemberCount(members.size());
+                            allGroups.add(group);
+                        }
+                    }
+                    filterGroups(currentCategory);
+                });
             }
 
             @Override
-            public void onError(String error) {
-                Toast.makeText(CommunityGroupActivity.this, "Error: " + error, Toast.LENGTH_SHORT).show();
+            public void onError(String message) {
+                runOnUiThread(() -> Toast.makeText(CommunityGroupActivity.this, "Error: " + message, Toast.LENGTH_SHORT).show());
             }
         });
     }
@@ -122,6 +153,9 @@ public class CommunityGroupActivity extends AppCompatActivity {
 
     private void openGroupChat(CommunityGroup group) {
         // Check if user is a member, if not, join first
+        if (group.getMembers() == null) {
+            group.setMembers(new ArrayList<>());
+        }
         if (!group.getMembers().contains(currentUserId)) {
             joinGroup(group);
         } else {
@@ -130,19 +164,23 @@ public class CommunityGroupActivity extends AppCompatActivity {
     }
 
     private void joinGroup(CommunityGroup group) {
-        group.getMembers().add(currentUserId);
-        group.setMemberCount(group.getMembers().size());
-
-        chatService.updateGroup(group, new ChatService.OnOperationCompleteListener() {
+        JSONObject body = new JSONObject();
+        try {
+            body.put("userId", currentUserId);
+        } catch (Exception ignored) {
+        }
+        apiClient.post("/api/groups/" + group.getGroupId() + "/join", body, new ApiClient.ApiCallback() {
             @Override
-            public void onSuccess() {
-                Toast.makeText(CommunityGroupActivity.this, "Joined group!", Toast.LENGTH_SHORT).show();
-                navigateToGroupChat(group);
+            public void onSuccess(JSONObject data) {
+                runOnUiThread(() -> {
+                    Toast.makeText(CommunityGroupActivity.this, "Joined group!", Toast.LENGTH_SHORT).show();
+                    navigateToGroupChat(group);
+                });
             }
 
             @Override
-            public void onError(String error) {
-                Toast.makeText(CommunityGroupActivity.this, "Error joining: " + error, Toast.LENGTH_SHORT).show();
+            public void onError(String message) {
+                runOnUiThread(() -> Toast.makeText(CommunityGroupActivity.this, "Error joining: " + message, Toast.LENGTH_SHORT).show());
             }
         });
     }
@@ -174,8 +212,5 @@ public class CommunityGroupActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (chatService != null) {
-            chatService.cleanup();
-        }
     }
 }

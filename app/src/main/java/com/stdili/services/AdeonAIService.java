@@ -1,15 +1,23 @@
 package com.stdili.services;
 
+import com.stdili.BuildConfig;
 import com.stdili.models.AdeonPersonality;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Adeon AI Service - Advanced Educational Companion
- * Enhanced with personality customization, advanced tutoring, practice problems, and offline support
- * Version 2.0: 1000+ training scenarios, personality modes, practice problem generation
+ * Enhanced with Ollama integration for real-time intelligent responses
  */
 public class AdeonAIService {
 
@@ -56,17 +64,23 @@ public class AdeonAIService {
             return;
         }
         addToHistory(true, userMessage);
-        // Check offline cache first
-        String cachedResponse = offlineCache.getResponse(userMessage);
-        if (cachedResponse != null) {
-            addToHistory(false, cachedResponse);
-            listener.onSuccess(cachedResponse);
-            return;
-        }
-        String response = generateIntelligentReply(userMessage.trim());
-        offlineCache.cacheResponse(userMessage, response);
-        addToHistory(false, response);
-        listener.onSuccess(response);
+        
+        // Try Ollama first
+        callOllama(userMessage, new OnResponse() {
+            @Override
+            public void onSuccess(String response) {
+                addToHistory(false, response);
+                listener.onSuccess(response);
+            }
+
+            @Override
+            public void onFailure(String error) {
+                // Fallback to offline logic if Ollama fails
+                String response = generateIntelligentReply(userMessage.trim());
+                addToHistory(false, response);
+                listener.onSuccess(response);
+            }
+        });
     }
 
     public void tutor(String subject, String topic, String question, OnResponse listener) {
@@ -74,11 +88,23 @@ public class AdeonAIService {
             listener.onFailure("All fields required");
             return;
         }
+        String fullPrompt = "Acting as an expert tutor, explain " + topic + " in " + subject + ". Question: " + question;
         addToHistory(true, subject + ":" + topic + ":" + question);
-        String response = generateAdvancedTutorResponse(subject, topic, question);
-        offlineCache.cacheResponse(subject + ":" + topic + ":" + question, response);
-        addToHistory(false, response);
-        listener.onSuccess(response);
+
+        callOllama(fullPrompt, new OnResponse() {
+            @Override
+            public void onSuccess(String response) {
+                addToHistory(false, response);
+                listener.onSuccess(response);
+            }
+
+            @Override
+            public void onFailure(String error) {
+                String response = generateAdvancedTutorResponse(subject, topic, question);
+                addToHistory(false, response);
+                listener.onSuccess(response);
+            }
+        });
     }
 
     public void counsel(String userMessage, OnResponse listener) {
@@ -86,9 +112,64 @@ public class AdeonAIService {
             listener.onFailure("Message cannot be empty");
             return;
         }
-        String response = generateCounselingResponse(userMessage.trim());
-        offlineCache.cacheResponse("counsel:" + userMessage, response);
-        listener.onSuccess(response);
+        String fullPrompt = "Acting as a supportive student counselor, respond to: " + userMessage;
+        
+        callOllama(fullPrompt, new OnResponse() {
+            @Override
+            public void onSuccess(String response) {
+                listener.onSuccess(response);
+            }
+
+            @Override
+            public void onFailure(String error) {
+                String response = generateCounselingResponse(userMessage.trim());
+                listener.onSuccess(response);
+            }
+        });
+    }
+
+    private void callOllama(String prompt, OnResponse listener) {
+        new Thread(() -> {
+            try {
+                URL url = new URL(BuildConfig.BACKEND_API_BASE_URL + "/api/ai/chat");
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("POST");
+                conn.setRequestProperty("Content-Type", "application/json; utf-8");
+                conn.setRequestProperty("Accept", "application/json");
+                conn.setConnectTimeout(5000);
+                conn.setReadTimeout(30000); // 30 seconds for AI generation
+                conn.setDoOutput(true);
+
+                JSONObject jsonInput = new JSONObject();
+                jsonInput.put("system", personality.getSystemPrompt());
+                jsonInput.put("prompt", prompt);
+
+                String jsonInputString = jsonInput.toString();
+
+                try (OutputStream os = conn.getOutputStream()) {
+                    byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
+                    os.write(input, 0, input.length);
+                }
+
+                int code = conn.getResponseCode();
+                if (code == 200) {
+                    try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8))) {
+                        StringBuilder response = new StringBuilder();
+                        String responseLine;
+                        while ((responseLine = br.readLine()) != null) {
+                            response.append(responseLine.trim());
+                        }
+                        JSONObject jsonResponse = new JSONObject(response.toString());
+                        String result = jsonResponse.optString("reply", "");
+                        listener.onSuccess(result);
+                    }
+                } else {
+                    listener.onFailure("HTTP " + code);
+                }
+            } catch (Exception e) {
+                listener.onFailure("Ollama Connection Error: " + e.getMessage());
+            }
+        }).start();
     }
 
     public void generateNotes(String subject, String topic, String content, OnResponse listener) {
@@ -96,7 +177,37 @@ public class AdeonAIService {
             listener.onFailure("All fields required");
             return;
         }
-        listener.onSuccess(generateAdvancedNotes(subject, topic, content));
+        String fullPrompt = "Generate detailed study notes for " + topic + " in " + subject + ". Base it on this content: " + content;
+        callOllama(fullPrompt, new OnResponse() {
+            @Override
+            public void onSuccess(String response) {
+                listener.onSuccess(response);
+            }
+
+            @Override
+            public void onFailure(String error) {
+                listener.onSuccess(generateAdvancedNotes(subject, topic, content));
+            }
+        });
+    }
+
+    public void generateFlashcards(String topic, String content, OnResponse listener) {
+        if (isEmpty(topic) || isEmpty(content)) {
+            listener.onFailure("Topic and content are required");
+            return;
+        }
+        String fullPrompt = "Generate 5 educational flashcards for the topic: " + topic + ". Based on this content: " + content + ". Format: Q: [Question] A: [Answer]";
+        callOllama(fullPrompt, new OnResponse() {
+            @Override
+            public void onSuccess(String response) {
+                listener.onSuccess(response);
+            }
+
+            @Override
+            public void onFailure(String error) {
+                listener.onFailure("Failed to generate flashcards: " + error);
+            }
+        });
     }
 
     public void explainConcept(String concept, String context, OnResponse listener) {
@@ -104,7 +215,46 @@ public class AdeonAIService {
             listener.onFailure("Concept required");
             return;
         }
-        listener.onSuccess(generateConceptExplanation(concept, context));
+        String fullPrompt = "Explain the concept of " + concept + " in the context of: " + context;
+        callOllama(fullPrompt, new OnResponse() {
+            @Override
+            public void onSuccess(String response) {
+                listener.onSuccess(response);
+            }
+
+            @Override
+            public void onFailure(String error) {
+                listener.onSuccess(generateConceptExplanation(concept, context));
+            }
+        });
+    }
+
+    public void generatePracticeExam(String subject, String topic, String difficulty, OnResponse listener) {
+        if (isEmpty(subject) || isEmpty(topic) || isEmpty(difficulty)) {
+            listener.onFailure("All fields required");
+            return;
+        }
+        String fullPrompt = "Generate a practice exam with 5 multiple choice questions (MCQs) for " + topic + " in " + subject + " with " + difficulty + " difficulty. " +
+                "Format each question as:\n" +
+                "Q: [Question]\n" +
+                "A: [Option A]\n" +
+                "B: [Option B]\n" +
+                "C: [Option C]\n" +
+                "D: [Option D]\n" +
+                "Correct: [Letter]\n" +
+                "Explanation: [Why]";
+        
+        callOllama(fullPrompt, new OnResponse() {
+            @Override
+            public void onSuccess(String response) {
+                listener.onSuccess(response);
+            }
+
+            @Override
+            public void onFailure(String error) {
+                listener.onFailure("Failed to generate practice exam: " + error);
+            }
+        });
     }
 
     /**
@@ -155,7 +305,8 @@ public class AdeonAIService {
     public static final String[] SUPPORTED_LANGUAGES = new String[]{
             "English", "Spanish", "French", "German", "Chinese", "Italian", "Portuguese", "Russian", "Japanese", "Korean",
             "Arabic", "Hindi", "Bengali", "Urdu", "Malay", "Indonesian", "Thai", "Vietnamese", "Turkish", "Dutch",
-            "Swedish", "Norwegian", "Danish", "Finnish", "Polish", "Greek", "Romanian", "Hungarian", "Czech", "Hebrew", "Swahili"};
+            "Swedish", "Norwegian", "Danish", "Finnish", "Polish", "Greek", "Romanian", "Hungarian", "Czech", "Hebrew", "Swahili",
+            "Tamil", "Telugu", "Kannada", "Marathi", "Gujarati", "Punjabi", "Malayalam", "Persian", "Amharic", "Pashto", "Hausa", "Igbo", "Yoruba", "Burmese", "Khmer", "Lao", "Mongolian", "Somali", "Zulu", "Xhosa", "Afrikaans", "Maltese", "Icelandic", "Welsh", "Irish", "Gaelic", "Basque", "Catalan", "Galician", "Corsican", "Sardinian", "Esperanto", "Latin", "Sanskrit", "Tibetan", "Armenian", "Georgian", "Azerbaijani", "Kazakh", "Uzbek", "Tatar", "Tajik", "Kurdish", "Bashkir", "Chuvash", "Sakha", "Karelian", "Veps", "Ingrian", "Votic", "Livonian", "Moksha", "Erzya", "Mari", "Udmurt", "Komi", "Nenets", "Khanty", "Mansi", "Selkup", "Evenki", "Even", "Nanai", "Ulch", "Orok", "Oroch", "Udege", "Negidal", "Nivkh", "Itelmen", "Chukchi", "Koryak", "Aliutor", "Kerek", "Yukaghir", "Ket", "Yugh", "Kott", "Assan", "Arin", "Pumpokol"};
 
     public void translate(String text, String targetLanguage, OnResponse listener) {
         if (isEmpty(text) || isEmpty(targetLanguage)) {

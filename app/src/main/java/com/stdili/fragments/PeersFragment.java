@@ -7,9 +7,12 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.stdili.R;
 import com.stdili.adapters.PeerAdapter;
 import com.stdili.models.Peer;
+import com.stdili.models.User;
+import com.stdili.utils.FirebaseHelper;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,12 +39,21 @@ public class PeersFragment extends Fragment implements PeerAdapter.OnPeerClickLi
     }
 
     private void loadPeers() {
-        // Load from Firebase
-        peers.add(new Peer("Alice Johnson", "Grade 12, Math Major", "Studying Calculus", true));
-        peers.add(new Peer("Bob Smith", "Grade 11, Science", "Physics project", false));
-        peers.add(new Peer("Charlie Brown", "Grade 10, Literature", "Essay writing", true));
-        peers.add(new Peer("Diana Prince", "Grade 12, History", "World War II research", true));
-        peers.add(new Peer("Eve Wilson", "Grade 11, Art", "Digital painting", false));
+        String myUid = FirebaseAuth.getInstance().getUid();
+        FirebaseHelper.getJuniors(users -> {
+            peers.clear();
+            for (User user : users) {
+                if (myUid != null && myUid.equals(user.getUid())) {
+                    continue;
+                }
+                String subtitle = (user.getClassGrade() == null ? "" : user.getClassGrade()) + " | " +
+                        (user.getSubjects() == null ? "No subjects" : String.join(", ", user.getSubjects()));
+                peers.add(new Peer(user.getName(), subtitle, user.getGoals(), true));
+            }
+            if (adapter != null) {
+                adapter.notifyDataSetChanged();
+            }
+        });
     }
 
     @Override

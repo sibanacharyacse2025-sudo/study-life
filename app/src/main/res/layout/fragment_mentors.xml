@@ -7,12 +7,83 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Expert Mentors"
+        android:text="Find Mentor (Senior)"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <EditText
+            android:id="@+id/etSearchSubject"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Search Subject"
+            android:padding="12dp"
+            android:background="@drawable/spinner_background"
+            android:layout_marginEnd="8dp"/>
+
+        <EditText
+            android:id="@+id/etSearchClass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Class"
+            android:padding="12dp"
+            android:background="@drawable/spinner_background"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <EditText
+            android:id="@+id/etSearchLanguage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Language"
+            android:padding="12dp"
+            android:background="@drawable/spinner_background"
+            android:layout_marginEnd="8dp"/>
+
+        <EditText
+            android:id="@+id/etSearchAvailability"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="online/offline"
+            android:padding="12dp"
+            android:background="@drawable/spinner_background"/>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressMentorLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMentors"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/tvMentorEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="No mentors found"
+        android:textSize="16sp"
+        android:visibility="gone" />
 </LinearLayout>

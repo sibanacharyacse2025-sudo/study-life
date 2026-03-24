@@ -13,6 +13,7 @@ import android.content.pm.PackageManager;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.stdili.R;
+import com.stdili.utils.SecureSessionManager;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -35,7 +36,9 @@ public class SplashActivity extends AppCompatActivity {
                 return;
             }
 
-            if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            SecureSessionManager sessionManager = new SecureSessionManager(this);
+            boolean hasBackendSession = sessionManager.getAccessToken() != null && sessionManager.getUserId() != null;
+            if (FirebaseAuth.getInstance().getCurrentUser() != null || hasBackendSession) {
                 startActivity(new Intent(this, MainActivity.class));
             } else {
                 startActivity(new Intent(this, WelcomeActivity.class));

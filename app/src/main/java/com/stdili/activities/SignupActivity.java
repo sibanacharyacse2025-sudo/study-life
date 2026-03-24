@@ -3,48 +3,81 @@ package com.stdili.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.stdili.R;
-import com.stdili.models.User;
-import com.stdili.utils.FirebaseHelper;
+import com.stdili.network.ApiClient;
+import com.stdili.utils.SecureSessionManager;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.util.Arrays;
+import java.util.List;
 
 public class SignupActivity extends AppCompatActivity {
 
-    private TextInputEditText etName, etEmail, etPassword, etConfirmPassword;
+    private TextInputEditText etName, etEmail, etPassword, etConfirmPassword, etClassGrade, etSubjects, etGoals, etPreferredLanguage;
+    private Spinner spRole;
     private Button btnSignup;
-    private FirebaseAuth mAuth;
-    private FirebaseFirestore db;
+    private TextView tvLoginLink;
+    private SecureSessionManager sessionManager;
+    private ApiClient apiClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        mAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance();
+        sessionManager = new SecureSessionManager(this);
+        apiClient = ApiClient.getInstance(sessionManager);
 
         etName = findViewById(R.id.etName);
         etEmail = findViewById(R.id.etEmail);
+        etClassGrade = findViewById(R.id.etClassGrade);
+        etSubjects = findViewById(R.id.etSubjects);
+        etGoals = findViewById(R.id.etGoals);
+        etPreferredLanguage = findViewById(R.id.etPreferredLanguage);
+        spRole = findViewById(R.id.spRole);
         etPassword = findViewById(R.id.etPassword);
         etConfirmPassword = findViewById(R.id.etConfirmPassword);
         btnSignup = findViewById(R.id.btnSignup);
+        tvLoginLink = findViewById(R.id.tvLoginLink);
 
         btnSignup.setOnClickListener(v -> signupUser());
+        tvLoginLink.setOnClickListener(v -> finish());
     }
 
     private void signupUser() {
         String name = etName.getText().toString().trim();
         String email = etEmail.getText().toString().trim();
+        String classGrade = etClassGrade.getText().toString().trim();
+        String subjectsStr = etSubjects.getText().toString().trim();
+        String goals = etGoals.getText().toString().trim();
+        String preferredLanguage = etPreferredLanguage.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
         String confirmPassword = etConfirmPassword.getText().toString().trim();
+        String selectedRoleText = spRole.getSelectedItem().toString();
+        String role;
+        if (selectedRoleText.contains("Junior")) {
+            role = "junior";
+        } else if (selectedRoleText.contains("Senior")) {
+            role = "senior";
+        } else {
+            role = "guest";
+        }
 
-        if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+        if (name.isEmpty() || email.isEmpty() || classGrade.isEmpty() || subjectsStr.isEmpty() || goals.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if ("guest".equals(role)) {
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("IS_GUEST", true);
+            startActivity(intent);
+            finish();
             return;
         }
 
@@ -53,34 +86,56 @@ public class SignupActivity extends AppCompatActivity {
             return;
         }
 
-        if (password.length() < 6) {
-            Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
-            return;
+        List<String> subjects = Arrays.asList(subjectsStr.split(","));
+        JSONObject payload = new JSONObject();
+        try {
+            payload.put("name", name);
+            payload.put("email", email);
+            payload.put("password", password);
+            payload.put("role", role);
+            payload.put("classGrade", classGrade);
+            payload.put("goals", goals);
+            payload.put("preferredLanguage", preferredLanguage.isEmpty() ? "English" : preferredLanguage);
+            payload.put("availability", "online");
+            JSONArray subjectsArray = new JSONArray();
+            for (String s : subjects) {
+                subjectsArray.put(s.trim());
+            }
+            payload.put("subjects", subjectsArray);
+        } catch (Exception ignored) {
         }
-
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, task -> {
-                    if (task.isSuccessful()) {
-                        // Create user profile
-                        User user = new User();
-                        user.setUid(mAuth.getCurrentUser().getUid());
-                        user.setName(name);
-                        user.setEmail(email);
-                        user.setRole("student"); // Default role
-                        user.setLevel(1);
-                        user.setXp(0);
-                        user.setCoins(100); // Starting coins
-                        user.setStudyHours(0);
-                        user.setStreak(0);
-
-                        FirebaseHelper.saveUser(user);
-
-                        Toast.makeText(this, "Account created successfully!", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(this, MainActivity.class));
-                        finish();
-                    } else {
-                        Toast.makeText(this, "Signup failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+        setLoading(true);
+        apiClient.post("/api/auth/signup", payload, new ApiClient.ApiCallback() {
+            @Override
+            public void onSuccess(JSONObject data) {
+                runOnUiThread(() -> {
+                    setLoading(false);
+                    JSONObject user = data.optJSONObject("user");
+                    String token = data.optString("token", null);
+                    String userId = user != null ? user.optString("_id", null) : null;
+                    if (token == null || userId == null) {
+                        Toast.makeText(SignupActivity.this, "Signup response missing session data", Toast.LENGTH_SHORT).show();
+                        return;
                     }
+                    sessionManager.saveSession(token, userId);
+                    Toast.makeText(SignupActivity.this, "Account created successfully!", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                    finish();
                 });
+            }
+
+            @Override
+            public void onError(String message) {
+                runOnUiThread(() -> {
+                    setLoading(false);
+                    Toast.makeText(SignupActivity.this, message, Toast.LENGTH_SHORT).show();
+                });
+            }
+        });
+    }
+
+    private void setLoading(boolean loading) {
+        btnSignup.setEnabled(!loading);
+        btnSignup.setText(loading ? "Creating account..." : "Create Account");
     }
 }

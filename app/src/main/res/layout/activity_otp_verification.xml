@@ -11,6 +11,13 @@
         android:text="Enter OTP"
         android:textSize="24sp"
         android:layout_marginBottom="24dp"/>
+    <TextView
+        android:id="@+id/tvPhoneHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter code received on your phone"
+        android:textSize="14sp"
+        android:layout_marginBottom="12dp"/>
     <EditText
         android:id="@+id/etOtp"
         android:layout_width="match_parent"

@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.stdili.R;
+import com.stdili.utils.SecureSessionManager;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -17,7 +18,9 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+        SecureSessionManager sessionManager = new SecureSessionManager(this);
+        boolean hasBackendSession = sessionManager.getAccessToken() != null && sessionManager.getUserId() != null;
+        if (FirebaseAuth.getInstance().getCurrentUser() != null || hasBackendSession) {
             startActivity(new Intent(this, MainActivity.class));
             finish();
             return;
@@ -32,7 +35,14 @@ public class WelcomeActivity extends AppCompatActivity {
 
         btnStudent.setOnClickListener(v -> startActivity(new Intent(this, LoginActivity.class)));
         btnTeacher.setOnClickListener(v -> startActivity(new Intent(this, LoginActivity.class)));
-        btnGuest.setOnClickListener(v -> startActivity(new Intent(this, MainActivity.class)));
+        
+        btnGuest.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("IS_GUEST", true);
+            startActivity(intent);
+            finish();
+        });
+
         tvSignUp.setOnClickListener(v -> startActivity(new Intent(this, SignupActivity.class)));
     }
 }

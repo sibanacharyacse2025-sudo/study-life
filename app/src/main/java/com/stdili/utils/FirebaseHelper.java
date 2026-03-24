@@ -3,6 +3,7 @@ package com.stdili.utils;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.stdili.models.MentorRequest;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.stdili.models.User;
 import java.util.List;
@@ -30,7 +31,7 @@ public class FirebaseHelper {
     public static void getUser(String uid, OnUserLoadedListener listener) {
         db.collection("users").document(uid).get().addOnSuccessListener(documentSnapshot -> {
             User user = documentSnapshot.toObject(User.class);
-            listener.onUserLoaded(user);
+            if (listener != null) listener.onUserLoaded(user);
         });
     }
 
@@ -45,11 +46,11 @@ public class FirebaseHelper {
         });
     }
 
-    public static void updateUserCoins(String uid, int coinsGained) {
+    public static void updateUserPoints(String uid, int pointsGained) {
         db.collection("users").document(uid).get().addOnSuccessListener(documentSnapshot -> {
             User user = documentSnapshot.toObject(User.class);
             if (user != null) {
-                user.setCoins(user.getCoins() + coinsGained);
+                user.setPoints(user.getPoints() + pointsGained);
                 saveUser(user);
             }
         });
@@ -61,16 +62,32 @@ public class FirebaseHelper {
         });
     }
 
-    public static void getStudents(OnUsersLoadedListener listener) {
-        db.collection("users").whereEqualTo("role", "student").get().addOnSuccessListener(queryDocumentSnapshots -> {
+    public static void getJuniors(OnUsersLoadedListener listener) {
+        db.collection("users").whereEqualTo("role", "junior").get().addOnSuccessListener(queryDocumentSnapshots -> {
             listener.onUsersLoaded(queryDocumentSnapshots.toObjects(User.class));
         });
     }
 
-    public static void getTeachers(OnUsersLoadedListener listener) {
-        db.collection("users").whereEqualTo("role", "teacher").get().addOnSuccessListener(queryDocumentSnapshots -> {
+    public static void getSeniors(OnUsersLoadedListener listener) {
+        db.collection("users").whereEqualTo("role", "senior").get().addOnSuccessListener(queryDocumentSnapshots -> {
             listener.onUsersLoaded(queryDocumentSnapshots.toObjects(User.class));
         });
+    }
+
+    public static void sendMentorRequest(MentorRequest request) {
+        String id = db.collection("mentor_requests").document().getId();
+        request.setId(id);
+        db.collection("mentor_requests").document(id).set(request);
+    }
+
+    public static void getMentorRequestsForSenior(String seniorId, OnRequestsLoadedListener listener) {
+        db.collection("mentor_requests").whereEqualTo("seniorId", seniorId).get().addOnSuccessListener(queryDocumentSnapshots -> {
+            listener.onRequestsLoaded(queryDocumentSnapshots.toObjects(MentorRequest.class));
+        });
+    }
+
+    public static void updateMentorRequestStatus(String requestId, String status) {
+        db.collection("mentor_requests").document(requestId).update("status", status);
     }
 
     public interface OnUserLoadedListener {
@@ -79,5 +96,9 @@ public class FirebaseHelper {
 
     public interface OnUsersLoadedListener {
         void onUsersLoaded(List<User> users);
+    }
+
+    public interface OnRequestsLoadedListener {
+        void onRequestsLoaded(List<MentorRequest> requests);
     }
 }

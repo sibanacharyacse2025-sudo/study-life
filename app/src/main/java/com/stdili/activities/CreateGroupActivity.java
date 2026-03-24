@@ -8,9 +8,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.stdili.R;
-import com.stdili.models.CommunityGroup;
-import com.stdili.services.ChatService;
-import java.util.Date;
+import com.stdili.network.ApiClient;
+import com.stdili.utils.SecureSessionManager;
+import org.json.JSONObject;
 
 public class CreateGroupActivity extends AppCompatActivity {
 
@@ -18,7 +18,7 @@ public class CreateGroupActivity extends AppCompatActivity {
     private EditText groupDescriptionInput;
     private Button categoryStudiesButton, categoryProjectsButton, categoryCareerButton, categoryGeneralButton;
     private Button createButton, cancelButton;
-    private ChatService chatService;
+    private ApiClient apiClient;
     private String selectedCategory = "General";
     private String currentUserRole;
     private String currentUserId;
@@ -43,9 +43,9 @@ public class CreateGroupActivity extends AppCompatActivity {
         createButton = findViewById(R.id.btnCreateGroup);
         cancelButton = findViewById(R.id.btnCancel);
 
-        chatService = new ChatService(this);
-        currentUserId = "currentUserId"; // Replace with actual current user ID
-        currentUserRole = "teacher"; // Replace with actual role fetch
+        SecureSessionManager sessionManager = new SecureSessionManager(this);
+        currentUserId = sessionManager.getUserId();
+        apiClient = ApiClient.getInstance(sessionManager);
 
         setTitle("Create Community Group");
         createButton.setOnClickListener(v -> createGroup());
@@ -53,10 +53,18 @@ public class CreateGroupActivity extends AppCompatActivity {
     }
 
     private void validateUserRole() {
-        if (!("teacher".equalsIgnoreCase(currentUserRole) || "senior".equalsIgnoreCase(currentUserRole))) {
-            Toast.makeText(this, "Only teachers and seniors can create groups", Toast.LENGTH_LONG).show();
+        if (currentUserId == null) {
+            Toast.makeText(this, "Please login first", Toast.LENGTH_LONG).show();
             finish();
+            return;
         }
+        com.stdili.utils.FirebaseHelper.getUser(currentUserId, user -> {
+            currentUserRole = user != null ? user.getRole() : "junior";
+            if (!("teacher".equalsIgnoreCase(currentUserRole) || "senior".equalsIgnoreCase(currentUserRole))) {
+                Toast.makeText(this, "Only teachers and seniors can create groups", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        });
     }
 
     private void setupCategoryButtons() {
@@ -92,29 +100,30 @@ public class CreateGroupActivity extends AppCompatActivity {
 
         createButton.setEnabled(false);
         createButton.setText("Creating...");
-
-        CommunityGroup group = new CommunityGroup();
-        group.setName(groupName);
-        group.setDescription(description);
-        group.setCategory(selectedCategory);
-        group.setCreatorId(currentUserId);
-        group.setCreatorRole(currentUserRole);
-        group.setCreatedAt(new Date());
-        group.setMemberCount(1);
-
-        chatService.createCommunityGroup(group, new ChatService.OnOperationCompleteListener() {
+        JSONObject body = new JSONObject();
+        try {
+            body.put("name", groupName);
+            body.put("description", description);
+            body.put("category", selectedCategory);
+        } catch (Exception ignored) {
+        }
+        apiClient.post("/api/groups", body, new ApiClient.ApiCallback() {
             @Override
-            public void onSuccess() {
-                Toast.makeText(CreateGroupActivity.this, "Group created successfully!", Toast.LENGTH_SHORT).show();
-                setResult(RESULT_OK);
-                finish();
+            public void onSuccess(JSONObject data) {
+                runOnUiThread(() -> {
+                    Toast.makeText(CreateGroupActivity.this, "Group created successfully!", Toast.LENGTH_SHORT).show();
+                    setResult(RESULT_OK);
+                    finish();
+                });
             }
 
             @Override
-            public void onError(String error) {
-                Toast.makeText(CreateGroupActivity.this, "Error: " + error, Toast.LENGTH_SHORT).show();
-                createButton.setEnabled(true);
-                createButton.setText("Create Group");
+            public void onError(String message) {
+                runOnUiThread(() -> {
+                    Toast.makeText(CreateGroupActivity.this, "Error: " + message, Toast.LENGTH_SHORT).show();
+                    createButton.setEnabled(true);
+                    createButton.setText("Create Group");
+                });
             }
         });
     }
